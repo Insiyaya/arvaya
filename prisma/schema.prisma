@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String         @id @default(cuid())
+  email        String         @unique
+  name         String?
+  phone        String?
+  doshaProfile String?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  quizResponses QuizResponse[]
+  orders       Order[]
+  reviews      Review[]
+}
+
+model QuizResponse {
+  id                  String   @id @default(cuid())
+  userId              String?
+  user                User?    @relation(fields: [userId], references: [id])
+  answers             Json
+  doshaResult         Json
+  recommendedProducts String[]
+  createdAt           DateTime @default(now())
+}
+
+model Product {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  name         String
+  sanskritName String?
+  category     String
+  concerns     String[]
+  doshas       String[]
+  price        Int
+  mrp          Int
+  shortDesc    String?
+  description  String?
+  ingredients  String[]
+  benefits     String[]
+  howToUse     String?
+  doctorNote   String?
+  images       String[]
+  stock        Int      @default(0)
+  featured     Boolean  @default(false)
+  published    Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  reviews      Review[]
+}
+
+model Order {
+  id                String   @id @default(cuid())
+  userId            String?
+  user              User?    @relation(fields: [userId], references: [id])
+  items             Json
+  subtotal          Int
+  discount          Int      @default(0)
+  total             Int
+  status            String   @default("pending")
+  razorpayOrderId   String?
+  razorpayPaymentId String?
+  shippingAddress   Json?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model BlogPost {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  excerpt     String?
+  content     String
+  category    String
+  author      String
+  readTime    Int?
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  rating    Int
+  title     String?
+  comment   String?
+  verified  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  source       String?
+  subscribedAt DateTime @default(now())
+}
