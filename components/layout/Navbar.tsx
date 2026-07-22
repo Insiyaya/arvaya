@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import { ShoppingCart, Menu, X, Leaf, User, LogOut } from "lucide-react";
+import { useCart } from "@/components/providers/CartProvider";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -20,6 +21,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
   const { data: session, status } = useSession();
+  const { count } = useCart();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -110,9 +112,11 @@ export default function Navbar() {
                 className="relative p-2 rounded-full text-[#6B5D4F] hover:text-[#2F5233] hover:bg-[#A8C09A]/20 transition-colors"
               >
                 <ShoppingCart size={20} />
-                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-[#C97B63] text-white text-[10px] font-bold rounded-full flex items-center justify-center">
-                  0
-                </span>
+                {count > 0 && (
+                  <span className="absolute -top-0.5 -right-0.5 min-w-4 h-4 px-1 bg-[#C97B63] text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                    {count}
+                  </span>
+                )}
               </Link>
 
               <button

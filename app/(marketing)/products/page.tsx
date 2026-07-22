@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Filter, SlidersHorizontal, ArrowRight } from "lucide-react";
 import ProductCard from "@/components/product/ProductCard";
+import AddToCartButton from "@/components/product/AddToCartButton";
 import { fetchProducts } from "@/lib/api";
 import { STARTER_KIT } from "@/lib/dummy-data";
 import { getKitBundlePrice } from "@/lib/quiz-engine";
@@ -81,13 +82,21 @@ export default async function ProductsPage() {
                       <span className="text-[#D4A24C] font-medium">save {formatPrice(savings)}</span>
                     </p>
                   )}
-                  <Link
-                    href="/quiz"
-                    className="inline-flex items-center gap-2 bg-[#D4A24C] text-[#1A3A1F] px-5 py-2.5 rounded-xl font-medium text-sm hover:bg-[#E8C07A] transition-colors"
-                  >
-                    Personalise mine
-                    <ArrowRight size={15} />
-                  </Link>
+                  <div className="flex flex-col gap-2 md:items-end">
+                    <AddToCartButton
+                      items={kitProducts.map(p => ({ slug: p.slug, name: p.name, sanskritName: p.sanskritName, price: p.price }))}
+                      label="Add kit to cart"
+                      iconSize={15}
+                      className="inline-flex items-center gap-2 bg-[#D4A24C] text-[#1A3A1F] px-5 py-2.5 rounded-xl font-medium text-sm hover:bg-[#E8C07A] transition-colors"
+                    />
+                    <Link
+                      href="/quiz"
+                      className="inline-flex items-center gap-1.5 text-sm text-[#A8C09A] hover:text-[#FAF7F0] transition-colors"
+                    >
+                      Personalise mine
+                      <ArrowRight size={14} />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

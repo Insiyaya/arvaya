@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { ArrowRight, ShoppingCart, Share2, CheckCircle, FileQuestion, Leaf, UserCircle } from "lucide-react";
+import { ArrowRight, Share2, CheckCircle, FileQuestion, Leaf, UserCircle } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
 import { getKitBundlePrice, type DoshaResult, type ProductRecommendation } from "@/lib/quiz-engine";
+import AddToCartButton from "@/components/product/AddToCartButton";
 import type { Product } from "@/lib/api";
 
 interface ResultData {
@@ -233,10 +234,14 @@ export default function QuizResultsPage() {
                   </div>
                 </div>
 
-                <button className="w-full flex items-center justify-center gap-2 bg-[#D4A24C] text-[#1A3A1F] py-4 rounded-xl font-medium hover:bg-[#E8C07A] transition-all hover:-translate-y-0.5 text-base">
-                  <ShoppingCart size={18} />
-                  Add Kit to Cart, {formatPrice(bundlePrice)}
-                </button>
+                <AddToCartButton
+                  items={recommendedProducts.map(p => ({ slug: p.slug, name: p.name, sanskritName: p.sanskritName, price: p.price }))}
+                  label="Add all to cart"
+                  addedLabel="Added to cart"
+                  iconSize={18}
+                  className="w-full flex items-center justify-center gap-2 bg-[#D4A24C] text-[#1A3A1F] py-4 rounded-xl font-medium hover:bg-[#E8C07A] transition-all hover:-translate-y-0.5 text-base"
+                />
+                <p className="text-center text-[11px] text-[#FAF7F0]/50 mt-3">Adds each product to your cart at its listed price.</p>
               </div>
             </>
           )}

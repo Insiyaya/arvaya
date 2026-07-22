@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Star, ShoppingCart, ArrowRight, ChevronLeft, CheckCircle, Leaf } from "lucide-react";
+import { Star, ArrowRight, ChevronLeft, CheckCircle, Leaf } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import ProductCard from "@/components/product/ProductCard";
+import AddToCartButton from "@/components/product/AddToCartButton";
 import { fetchProduct, fetchProducts } from "@/lib/api";
 import { formatPrice } from "@/lib/utils";
 
@@ -162,16 +163,12 @@ export default async function ProductDetailPage({
                 )}
               </div>
 
-              <div className="flex gap-3 mb-6">
-                <div className="flex items-center border border-[#A8C09A]/50 rounded-xl overflow-hidden">
-                  <button className="px-4 py-3 text-[#6B5D4F] hover:bg-[#A8C09A]/15 transition-colors">−</button>
-                  <span className="px-4 py-3 text-sm font-medium min-w-[3rem] text-center">1</span>
-                  <button className="px-4 py-3 text-[#6B5D4F] hover:bg-[#A8C09A]/15 transition-colors">+</button>
-                </div>
-                <button className="flex-1 flex items-center justify-center gap-2 bg-[#2F5233] text-[#FAF7F0] py-3 rounded-xl font-medium hover:bg-[#4A7C59] transition-all hover:-translate-y-0.5 shadow-[0_8px_24px_rgba(47,82,51,0.25)]">
-                  <ShoppingCart size={16} />
-                  Add to Cart
-                </button>
+              <div className="mb-6">
+                <AddToCartButton
+                  items={{ slug: product.slug, name: product.name, sanskritName: product.sanskritName, price: product.price }}
+                  label="Add to Cart"
+                  className="w-full flex items-center justify-center gap-2 bg-[#2F5233] text-[#FAF7F0] py-3.5 rounded-xl font-medium hover:bg-[#4A7C59] transition-all hover:-translate-y-0.5 shadow-[0_8px_24px_rgba(47,82,51,0.25)]"
+                />
               </div>
 
               <div className="flex flex-col gap-2 pt-5 border-t border-[#A8C09A]/25">

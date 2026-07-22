@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ShoppingCart, Star, Leaf } from "lucide-react";
+import { Star, Leaf } from "lucide-react";
 import Badge from "@/components/ui/Badge";
+import AddToCartButton from "@/components/product/AddToCartButton";
 import { formatPrice } from "@/lib/utils";
 
 interface ProductCardProps {
@@ -91,13 +92,12 @@ export default function ProductCard({
               <span className="text-xs text-[#6B5D4F]/60 line-through">{formatPrice(mrp)}</span>
             )}
           </div>
-          <button
-            aria-label={`Add ${name} to cart`}
+          <AddToCartButton
+            items={{ slug, name, sanskritName, price }}
+            label="Add"
+            iconSize={12}
             className="flex items-center gap-1.5 bg-[#2F5233] text-[#FAF7F0] text-xs font-medium px-3 py-2 rounded-xl hover:bg-[#4A7C59] transition-colors"
-          >
-            <ShoppingCart size={12} />
-            Add
-          </button>
+          />
         </div>
       </div>
     </article>
