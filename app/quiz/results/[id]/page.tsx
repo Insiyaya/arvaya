@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { ArrowRight, ShoppingCart, Share2, CheckCircle, FileQuestion, Leaf, UserCircle } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
-import type { DoshaResult, ProductRecommendation } from "@/lib/quiz-engine";
+import { getKitBundlePrice, type DoshaResult, type ProductRecommendation } from "@/lib/quiz-engine";
 import type { Product } from "@/lib/api";
 
 interface ResultData {
@@ -117,10 +117,10 @@ export default function QuizResultsPage() {
     })
     .filter(Boolean) as RecommendedProduct[];
 
-  const bundleTotal = recommendedProducts.reduce((sum, p) => sum + p.price, 0);
-  const bundleMrp = recommendedProducts.reduce((sum, p) => sum + p.mrp, 0);
-  const bundlePrice = Math.round(bundleMrp * 0.8);
-  const savings = bundleMrp - bundlePrice;
+  const { bundlePrice, totalMrp, savings } = getKitBundlePrice(
+    recommendedProducts.map(p => p.slug),
+    recommendedProducts
+  );
 
   return (
     <div className="bg-[#FAF7F0]">
@@ -216,8 +216,8 @@ export default function QuizResultsPage() {
               <div className="bg-[#2F5233] rounded-2xl p-8 text-[#FAF7F0] max-w-2xl mx-auto">
                 <div className="text-center mb-6">
                   <h3 className="font-heading text-2xl mb-2">Add Full Kit to Cart</h3>
-                  {bundleMrp > 0 && (
-                    <p className="text-[#FAF7F0]/70 text-sm">Save {Math.round((savings / bundleMrp) * 100)}% when you buy your personalised kit together</p>
+                  {totalMrp > 0 && (
+                    <p className="text-[#FAF7F0]/70 text-sm">Save {Math.round((savings / totalMrp) * 100)}% when you buy your personalised kit together</p>
                   )}
                 </div>
 
@@ -228,7 +228,7 @@ export default function QuizResultsPage() {
                   </div>
                   <div className="text-right">
                     <p className="text-xs text-[#A8C09A] mb-1">vs. buying individually</p>
-                    <p className="font-heading text-xl text-[#FAF7F0]/50 line-through">{formatPrice(bundleTotal)}</p>
+                    <p className="font-heading text-xl text-[#FAF7F0]/50 line-through">{formatPrice(totalMrp)}</p>
                     <p className="text-sm text-[#D4A24C] font-medium">You save {formatPrice(savings)}</p>
                   </div>
                 </div>

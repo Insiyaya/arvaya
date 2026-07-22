@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
-import { Filter, SlidersHorizontal } from "lucide-react";
+import Link from "next/link";
+import { Filter, SlidersHorizontal, ArrowRight } from "lucide-react";
 import ProductCard from "@/components/product/ProductCard";
 import { fetchProducts } from "@/lib/api";
+import { STARTER_KIT } from "@/lib/dummy-data";
+import { getKitBundlePrice } from "@/lib/quiz-engine";
+import { formatPrice } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "All Products, Ayurvedic Skincare & Haircare",
@@ -15,6 +19,12 @@ const DOSHAS = ["All doshas", "Vata", "Pitta", "Kapha"];
 
 export default async function ProductsPage() {
   const products = await fetchProducts();
+
+  // Curated tridoshic starter bundle (resolve its products + bundle price)
+  const kitProducts = STARTER_KIT.slugs
+    .map(slug => products.find(p => p.slug === slug))
+    .filter(Boolean) as typeof products;
+  const { bundlePrice, totalMrp, savings } = getKitBundlePrice(STARTER_KIT.slugs, kitProducts);
 
   return (
     <>
@@ -34,6 +44,56 @@ export default async function ProductsPage() {
           </p>
         </div>
       </section>
+
+      {/* Dinacharya Starter Ritual — curated tridoshic bundle */}
+      {kitProducts.length > 0 && (
+        <section className="section-padding pt-0 pb-6 bg-[#FAF7F0]">
+          <div className="container-max">
+            <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#2F5233] via-[#274530] to-[#1A3A1F] text-[#FAF7F0] p-8 md:p-10">
+              <div className="grid md:grid-cols-[1fr_auto] gap-8 md:items-center relative z-10">
+                <div>
+                  <p className="text-[10px] font-medium uppercase tracking-widest text-[#A8C09A] mb-2">
+                    Start Here
+                  </p>
+                  <div className="flex items-baseline gap-3 mb-2 flex-wrap">
+                    <span className="font-devanagari text-2xl text-[#D4A24C] leading-none">{STARTER_KIT.sanskritName}</span>
+                    <h2 className="font-heading text-2xl md:text-3xl font-light">{STARTER_KIT.name}</h2>
+                  </div>
+                  <p className="text-[#FAF7F0]/75 text-sm leading-relaxed max-w-xl mb-4">{STARTER_KIT.blurb}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {kitProducts.map(p => (
+                      <Link
+                        key={p.slug}
+                        href={`/products/${p.slug}`}
+                        className="text-xs bg-[#FAF7F0]/10 border border-[#FAF7F0]/20 rounded-full px-3 py-1.5 hover:bg-[#FAF7F0]/15 transition-colors"
+                      >
+                        {p.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+                <div className="md:text-right">
+                  <p className="text-xs text-[#A8C09A] mb-1">Kit price</p>
+                  <p className="font-heading text-3xl mb-1">{formatPrice(bundlePrice)}</p>
+                  {totalMrp > bundlePrice && (
+                    <p className="text-sm mb-4">
+                      <span className="text-[#FAF7F0]/50 line-through">{formatPrice(totalMrp)}</span>{" "}
+                      <span className="text-[#D4A24C] font-medium">save {formatPrice(savings)}</span>
+                    </p>
+                  )}
+                  <Link
+                    href="/quiz"
+                    className="inline-flex items-center gap-2 bg-[#D4A24C] text-[#1A3A1F] px-5 py-2.5 rounded-xl font-medium text-sm hover:bg-[#E8C07A] transition-colors"
+                  >
+                    Personalise mine
+                    <ArrowRight size={15} />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section-padding pt-0 bg-[#FAF7F0]">
         <div className="container-max">

@@ -179,7 +179,136 @@ export const PRODUCTS = [
     rating: 4.7,
     reviewCount: 118,
   },
+  {
+    id: "7",
+    slug: "amla-brahmi-hair-tonic",
+    name: "Amla-Brahmi Hair Tonic",
+    sanskritName: "आमलकी-ब्राह्मी केश टॉनिक",
+    category: "hair",
+    concerns: ["greying", "thinning", "hair-fall"],
+    doshas: ["vata", "pitta"],
+    price: 899,
+    mrp: 1049,
+    shortDesc: "A daily scalp tonic of Amla and Brahmi, traditionally used to slow premature greying",
+    description:
+      "Amalaki (Indian gooseberry) and Brahmi are combined with Bhringraj and Jatamansi in a light, non-greasy base. In Ayurveda this Rasayana blend is traditionally used to nourish the roots, support natural pigment, and calm a stressed scalp.",
+    ingredients: ["Amalaki (Amla)", "Brahmi", "Bhringraj", "Jatamansi", "Neelini (Indigo)", "Coconut-derived Base"],
+    benefits: [
+      "Traditionally used to slow premature greying",
+      "Supports fullness and helps reduce thinning over time",
+      "Jatamansi calms a stress-prone, Vata-type scalp",
+      "Lightweight, absorbs without an oily residue",
+    ],
+    howToUse:
+      "Part the hair and massage 8–10 drops into the scalp. Use daily or on alternate evenings. Leave on, no rinse required. Consistent use over 8–12 weeks gives the best results.",
+    doctorNote:
+      "Premature greying is often linked to Pitta and stress. Arvaya pairs Amla's vitamin C with Bhringraj and Brahmi to support the follicle from the root.",
+    images: ["/products/amla-brahmi-1.jpg"],
+    stock: 40,
+    featured: true,
+    rating: 4.6,
+    reviewCount: 64,
+  },
+  {
+    id: "8",
+    slug: "japapushpa-hair-cleanser",
+    name: "Japapushpa Gentle Hair Cleanser",
+    sanskritName: "जपापुष्प केश प्रक्षालन",
+    category: "hair",
+    concerns: ["dandruff", "scalp-issues"],
+    doshas: ["kapha", "pitta"],
+    price: 599,
+    mrp: 699,
+    shortDesc: "A mild Hibiscus and Reetha cleanser for a flake-free, balanced scalp",
+    description:
+      "Japa (Hibiscus) is blended with Reetha (soapnut), Shikakai and Neem for a sulphate-free wash. Traditionally used to clear flakes and excess oil while keeping the scalp's natural balance intact.",
+    ingredients: ["Japa (Hibiscus)", "Reetha (Soapnut)", "Shikakai", "Neem", "Amla", "Aloe Vera"],
+    benefits: [
+      "Gently clears dandruff and flakes without stripping",
+      "Balances an oily, Kapha-prone scalp",
+      "Hibiscus supports softness and shine",
+      "Free from sulphates, silicones and parabens",
+    ],
+    howToUse:
+      "Massage a coin-sized amount into a wet scalp, lather, and rinse thoroughly. Use 2–3 times a week. Follow with a hair oil or mask if needed.",
+    doctorNote:
+      "For recurrent flaking Arvaya starts with a gentle, non-stripping cleanser before any active treatment. Neem clears without aggravating a sensitive scalp.",
+    images: ["/products/japapushpa-1.jpg"],
+    stock: 70,
+    featured: false,
+    rating: 4.5,
+    reviewCount: 52,
+  },
+  {
+    id: "9",
+    slug: "nalpamaradi-face-oil",
+    name: "Nalpamaradi Brightening Face Oil",
+    sanskritName: "नाल्पामरादि तैलम्",
+    category: "skin",
+    concerns: ["pigmentation", "dullness"],
+    doshas: ["pitta", "kapha"],
+    price: 1149,
+    mrp: 1349,
+    shortDesc: "The classical Nalpamaradi oil, traditionally used to even tone and lift dullness",
+    description:
+      "A faithful preparation of Nalpamaradi Thailam, built on the four Ficus barks with turmeric, Vetiver and Manjistha in a sesame base. Traditionally used to brighten uneven tone, soften tan, and support a clear, even complexion.",
+    ingredients: ["Nalpamara (four Ficus barks)", "Turmeric (Nisha)", "Manjistha", "Vetiver (Usheera)", "Sesame Oil Base"],
+    benefits: [
+      "Traditionally used to fade pigmentation and tan",
+      "Manjistha supports an even, luminous tone",
+      "Nourishes without clogging when used sparingly",
+      "Suited to Pitta and Kapha complexions",
+    ],
+    howToUse:
+      "At night, warm 3–4 drops between the palms and press onto cleansed skin. For oily skin, use on alternate nights. Always follow daytime use with sunscreen.",
+    doctorNote:
+      "Nalpamaradi is one of Ayurveda's most trusted brightening oils. Arvaya recommends it for tan and post-sun pigmentation; patch test first for reactive skin.",
+    images: ["/products/nalpamaradi-1.jpg"],
+    stock: 38,
+    featured: true,
+    rating: 4.7,
+    reviewCount: 41,
+  },
+  {
+    id: "10",
+    slug: "chandanadi-ubtan",
+    name: "Chandanadi Clarifying Ubtan",
+    sanskritName: "चन्दनादि लेप",
+    category: "skin",
+    concerns: ["acne", "oiliness", "dullness"],
+    doshas: ["kapha", "pitta"],
+    price: 699,
+    mrp: 799,
+    shortDesc: "A classic Sandalwood ubtan mask to clarify oily, congestion-prone skin",
+    description:
+      "A traditional lepa of Chandana (sandalwood), Multani mitti, Masoor and Lodhra. Mixed fresh into a paste, it is traditionally used to draw out excess oil, calm breakouts, and leave skin bright and matte.",
+    ingredients: ["Chandana (Sandalwood)", "Multani Mitti (Fuller's Earth)", "Masoor (Red Lentil)", "Lodhra", "Rose Petal", "Turmeric"],
+    benefits: [
+      "Traditionally used to clarify oily, congested skin",
+      "Sandalwood cools and calms active breakouts",
+      "Gently exfoliates for an instant glow",
+      "A weekly ritual for Kapha and Pitta skin",
+    ],
+    howToUse:
+      "Mix 1–2 teaspoons with rose water or raw milk into a paste. Apply an even layer, leave 10–15 minutes until touch-dry, then rinse with cool water. Use 1–2 times a week.",
+    doctorNote:
+      "An ubtan is Ayurveda's original clarifying mask. Arvaya keeps this one gentle so it clears oil and dullness without over-drying the skin.",
+    images: ["/products/chandanadi-1.jpg"],
+    stock: 60,
+    featured: false,
+    rating: 4.6,
+    reviewCount: 88,
+  },
 ];
+
+// A curated tridoshic starter bundle suggested to newcomers (and echoed by the quiz).
+export const STARTER_KIT = {
+  name: "Dinacharya Starter Ritual",
+  sanskritName: "दिनचर्या",
+  blurb:
+    "A tridoshic daily ritual to begin with: cleanse, treat and nourish, in three steps suited to every Prakriti.",
+  slugs: ["neem-tulsi-face-wash", "kumkumadi-face-serum", "triphala-hair-mask"],
+};
 
 export const BLOG_POSTS = [
   {

@@ -1,3 +1,5 @@
+import { PRODUCTS } from "@/lib/dummy-data";
+
 const FASTAPI_URL = process.env.FASTAPI_URL ?? "http://localhost:8000";
 
 async function apiFetch<T>(path: string, init?: RequestInit): Promise<T | null> {
@@ -14,7 +16,7 @@ async function apiFetch<T>(path: string, init?: RequestInit): Promise<T | null> 
 }
 
 export type Product = {
-  id: number;
+  id: string;
   slug: string;
   name: string;
   sanskritName?: string | null;
@@ -32,10 +34,10 @@ export type Product = {
   images: string[];
   stock: number;
   featured: boolean;
-  published: boolean;
+  published?: boolean;
   rating?: number | null;
   reviewCount: number;
-  createdAt: string;
+  createdAt?: string;
 };
 
 export type BlogPost = {
@@ -79,25 +81,33 @@ export type TimelineEntry = { id: number; year: string; event: string; order: nu
 export type Credential = { id: number; iconName?: string | null; title: string; description: string; order: number };
 export type BrandPillar = { id: number; number: string; title: string; description: string; order: number };
 
+// Products are served from the local catalogue in lib/dummy-data.ts (no backend
+// required). filterProducts is shared with the /api/products route handler.
+export function filterProducts(params?: {
+  category?: string;
+  dosha?: string;
+  concern?: string;
+  featured?: boolean;
+}): Product[] {
+  let items = PRODUCTS as Product[];
+  if (params?.category) items = items.filter(p => p.category === params.category);
+  if (params?.dosha) items = items.filter(p => p.doshas.includes(params.dosha!));
+  if (params?.concern) items = items.filter(p => p.concerns.includes(params.concern!));
+  if (params?.featured) items = items.filter(p => p.featured);
+  return items;
+}
+
 export async function fetchProducts(params?: {
   category?: string;
   dosha?: string;
   concern?: string;
   featured?: boolean;
 }): Promise<Product[]> {
-  const url = new URL(`${FASTAPI_URL}/api/products`);
-  if (params?.category) url.searchParams.set("category", params.category);
-  if (params?.dosha) url.searchParams.set("dosha", params.dosha);
-  if (params?.concern) url.searchParams.set("concern", params.concern);
-  if (params?.featured !== undefined) url.searchParams.set("featured", String(params.featured));
-  const data = await apiFetch<{ products: Product[] }>(
-    `/api/products${url.search}`
-  );
-  return data?.products ?? [];
+  return filterProducts(params);
 }
 
 export async function fetchProduct(slug: string): Promise<Product | null> {
-  return apiFetch<Product>(`/api/products/${slug}`);
+  return (PRODUCTS as Product[]).find(p => p.slug === slug) ?? null;
 }
 
 export async function fetchBlogPosts(category?: string): Promise<BlogPost[]> {

@@ -114,39 +114,32 @@ export function mapConcernsToProducts(
   const recs: ProductRecommendation[] = [];
   const skinConcern = answers["skin-concern"];
   const hairConcern = answers["hair-concern"];
+  const oily = answers["skin-type"] === "oily";
   const dosha = doshaResult.primary;
+  const add = (productId: string, priority: number) =>
+    recs.push({ productId, reason: generateReason(productId, answers, doshaResult), priority });
 
   // Skin recommendations
-  if (skinConcern === "dullness" || skinConcern === "pigmentation") {
-    recs.push({ productId: "kumkumadi-face-serum", reason: generateReason("kumkumadi-face-serum", answers, doshaResult), priority: 1 });
-  }
-  if (skinConcern === "acne" || skinConcern === "oiliness" || answers["skin-type"] === "oily") {
-    recs.push({ productId: "neem-tulsi-face-wash", reason: generateReason("neem-tulsi-face-wash", answers, doshaResult), priority: 1 });
-  }
-  if (skinConcern === "aging" || skinConcern === "dryness" || dosha === "vata") {
-    recs.push({ productId: "ashwagandha-night-cream", reason: generateReason("ashwagandha-night-cream", answers, doshaResult), priority: 2 });
-  }
-  if (skinConcern === "sensitivity" || dosha === "pitta") {
-    recs.push({ productId: "rose-sandalwood-toner", reason: generateReason("rose-sandalwood-toner", answers, doshaResult), priority: 2 });
-  }
+  if (skinConcern === "dullness" || skinConcern === "pigmentation") add("kumkumadi-face-serum", 1);
+  if (skinConcern === "pigmentation") add("nalpamaradi-face-oil", 2);
+  if (skinConcern === "acne" || skinConcern === "oiliness" || oily) add("neem-tulsi-face-wash", 1);
+  if (skinConcern === "acne" || skinConcern === "oiliness" || oily) add("chandanadi-ubtan", 2);
+  if (skinConcern === "aging" || skinConcern === "dryness" || dosha === "vata") add("ashwagandha-night-cream", 2);
+  if (skinConcern === "sensitivity" || dosha === "pitta") add("rose-sandalwood-toner", 2);
 
   // Ensure at least one skin product
-  if (!recs.find(r => ["kumkumadi-face-serum", "neem-tulsi-face-wash", "ashwagandha-night-cream"].includes(r.productId))) {
-    recs.push({ productId: "kumkumadi-face-serum", reason: generateReason("kumkumadi-face-serum", answers, doshaResult), priority: 3 });
-  }
+  const SKIN = ["kumkumadi-face-serum", "nalpamaradi-face-oil", "neem-tulsi-face-wash", "chandanadi-ubtan", "ashwagandha-night-cream", "rose-sandalwood-toner"];
+  if (!recs.some(r => SKIN.includes(r.productId))) add("kumkumadi-face-serum", 3);
 
   // Hair recommendations
-  if (hairConcern === "hair-fall" || hairConcern === "thinning" || hairConcern === "scalp-issues") {
-    recs.push({ productId: "bhringraj-hair-oil", reason: generateReason("bhringraj-hair-oil", answers, doshaResult), priority: 1 });
-  }
-  if (hairConcern === "dandruff" || hairConcern === "dryness" || hairConcern === "damage") {
-    recs.push({ productId: "triphala-hair-mask", reason: generateReason("triphala-hair-mask", answers, doshaResult), priority: 2 });
-  }
+  if (hairConcern === "hair-fall" || hairConcern === "thinning" || hairConcern === "scalp-issues") add("bhringraj-hair-oil", 1);
+  if (hairConcern === "greying" || hairConcern === "thinning") add("amla-brahmi-hair-tonic", 1);
+  if (hairConcern === "dandruff" || hairConcern === "scalp-issues") add("japapushpa-hair-cleanser", 2);
+  if (hairConcern === "dandruff" || hairConcern === "dryness" || hairConcern === "damage") add("triphala-hair-mask", 2);
 
   // Ensure at least one hair product
-  if (!recs.find(r => ["bhringraj-hair-oil", "triphala-hair-mask"].includes(r.productId))) {
-    recs.push({ productId: "bhringraj-hair-oil", reason: generateReason("bhringraj-hair-oil", answers, doshaResult), priority: 3 });
-  }
+  const HAIR = ["bhringraj-hair-oil", "amla-brahmi-hair-tonic", "japapushpa-hair-cleanser", "triphala-hair-mask"];
+  if (!recs.some(r => HAIR.includes(r.productId))) add("bhringraj-hair-oil", 3);
 
   // Deduplicate and sort by priority
   const seen = new Set<string>();
@@ -172,6 +165,10 @@ function generateReason(productId: string, answers: QuizAnswers, doshaResult: Do
     "rose-sandalwood-toner": `Selected for your sensitive ${dosha === "pitta" ? "Pitta" : doshaLabel} skin${hasPollution ? " and daily pollution exposure" : ""}. Rose water and sandalwood hydrosols have a classically cooling, Pitta-soothing effect that prepares your skin for the next steps in your routine.`,
     "bhringraj-hair-oil": `Chosen for your concern about ${hairConcern}. Bhringraj, Keshraj, the 'ruler of hair' in Ayurvedic texts, works on the ${dosha === "vata" ? "root cause of Vata-type hair fall: a dry, undernourished scalp" : dosha === "pitta" ? "Pitta-driven inflammation that triggers excessive shedding" : "Kapha-type scalp buildup that blocks follicles"}.`,
     "triphala-hair-mask": `Triphala is tridoshic, it works for all constitutions. For your ${hairConcern} concern, the weekly mask's Amalaki (vitamin C-rich Amla) and Shikakai provide deep cleansing and strengthening that daily shampoo cannot.`,
+    "nalpamaradi-face-oil": `Selected to target ${skinConcern} on your ${doshaLabel} skin. The classical Nalpamaradi oil, with Manjistha and turmeric, is traditionally used to even tone and soften tan${hasPollution ? ", helpful against daily pollution" : ""}.`,
+    "chandanadi-ubtan": `Chosen for your ${skinConcern.includes("acne") ? "breakout-prone" : "oily"} skin. This Sandalwood ubtan draws out excess oil and calms congestion, a weekly clarifying ritual for ${dosha === "kapha" ? "Kapha" : doshaLabel} skin.`,
+    "amla-brahmi-hair-tonic": `Chosen for your concern about ${hairConcern}. Amalaki and Brahmi are traditionally used to nourish the roots and support natural pigment, especially helpful for ${dosha === "pitta" ? "Pitta-driven premature greying" : "thinning and a stressed, Vata-type scalp"}.`,
+    "japapushpa-hair-cleanser": `A gentle, sulphate-free wash for your ${hairConcern} concern. Hibiscus and Reetha clear flakes and balance ${dosha === "kapha" ? "an oily, Kapha-prone scalp" : "excess scalp oil"} without stripping.`,
   };
 
   return reasons[productId] || `Recommended based on your ${doshaLabel} Prakriti and your skin/hair concerns.`;

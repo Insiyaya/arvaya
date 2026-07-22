@@ -1,22 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
+import { filterProducts } from "@/lib/api";
 
-const FASTAPI_URL = process.env.FASTAPI_URL ?? "http://localhost:8000";
-
+// Serves the local product catalogue (lib/dummy-data.ts). The quiz results page
+// fetches this endpoint to enrich its recommendations.
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const params = new URLSearchParams();
-  ["category", "dosha", "concern", "featured"].forEach(k => {
-    const v = searchParams.get(k);
-    if (v) params.set(k, v);
+  const products = filterProducts({
+    category: searchParams.get("category") ?? undefined,
+    dosha: searchParams.get("dosha") ?? undefined,
+    concern: searchParams.get("concern") ?? undefined,
+    featured: searchParams.get("featured") === "true" ? true : undefined,
   });
-
-  try {
-    const res = await fetch(`${FASTAPI_URL}/api/products?${params}`, {
-      next: { revalidate: 60 },
-    });
-    const data = await res.json();
-    return NextResponse.json(data, { status: res.status });
-  } catch {
-    return NextResponse.json({ products: [], total: 0 }, { status: 200 });
-  }
+  return NextResponse.json({ products, total: products.length }, { status: 200 });
 }
