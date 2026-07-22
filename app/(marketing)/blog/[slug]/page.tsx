@@ -134,7 +134,7 @@ export default async function BlogArticlePage({
                 <div className="bg-[#2F5233] rounded-2xl p-5 text-[#FAF7F0]">
                   <p className="font-heading text-lg mb-2">Get weekly Ayurvedic tips</p>
                   <p className="text-xs text-[#FAF7F0]/70 mb-4 leading-relaxed">
-                    Arvaya sends one dosha tip every week — practical, seasonal, and evidence-based.
+                    Arvaya sends one dosha tip every week, practical, seasonal, and evidence-based.
                   </p>
                   <input
                     type="email"

@@ -33,7 +33,7 @@ function Wisp({ left, delay }: { left: string; delay: string }) {
   );
 }
 
-/* ─── Composed hero visual — animated illustration ────────────────────────── */
+/* ─── Composed hero visual, animated illustration ────────────────────────── */
 export default function HeroVisual() {
   return (
     <div className="relative w-full max-w-[560px] mx-auto lg:h-[540px] flex items-center justify-center">
@@ -46,7 +46,7 @@ export default function HeroVisual() {
         <p className="text-[10px] uppercase tracking-[0.25em] text-[#6B5D4F]/70">The Science of Life</p>
       </div>
 
-      {/* Rotating "wheel" — mandala rings behind the illustration (show through
+      {/* Rotating "wheel", mandala rings behind the illustration (show through
           the transparent artwork) */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
         <div
@@ -69,13 +69,13 @@ export default function HeroVisual() {
         ))}
       </div>
 
-      {/* Animated illustration — transparent, no frame */}
+      {/* Animated illustration, transparent, no frame */}
       <div
         className="relative z-10 mt-10 w-full"
         style={{ animation: "fade-up 0.8s 0.35s ease-out both" }}
       >
         <div className="relative aspect-[1591/1056] w-full">
-          {/* base — pot & ingredients, hand & stick removed; soft grounding shadow */}
+          {/* base, pot & ingredients, hand & stick removed; soft grounding shadow */}
           <img
             src="/hero-base.webp"
             alt="Ayurvedic remedy being prepared in a brass pot"
@@ -87,13 +87,13 @@ export default function HeroVisual() {
           <Wisp left="50.8%" delay="1.2s" />
           <Wisp left="54.6%" delay="2.3s" />
 
-          {/* mixing stick — static, resting in the pot */}
+          {/* mixing stick, static, resting in the pot */}
           <img
             src="/hero-stick.webp" alt="" aria-hidden="true"
             className="absolute inset-0 w-full h-full object-contain"
           />
 
-          {/* hand — static, with a gentle sprinkling wrist bob */}
+          {/* hand, static, with a gentle sprinkling wrist bob */}
           <img
             src="/hero-hand.webp" alt="A practitioner's hand adding fresh herbs" aria-hidden="true"
             className="absolute inset-0 w-full h-full object-contain"
@@ -113,7 +113,7 @@ export default function HeroVisual() {
         </div>
       </div>
 
-      {/* Tridosha script widget — floating on the frame's corner */}
+      {/* Tridosha script widget, floating on the frame's corner */}
       <div
         className="absolute -bottom-4 left-2 md:-left-6 bg-white/95 backdrop-blur-sm rounded-2xl shadow-[0_8px_32px_rgba(47,82,51,0.16)] px-4 py-3 border border-[#A8C09A]/25 z-20"
         style={{ animation: "fade-up 0.7s 0.6s ease-out both" }}

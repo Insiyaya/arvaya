@@ -4,9 +4,9 @@ import { Search, Leaf } from "lucide-react";
 import { fetchBlogPosts } from "@/lib/api";
 
 export const metadata: Metadata = {
-  title: "Blog — Ayurvedic Skin & Hair Wisdom from Arvaya",
+  title: "Blog, Ayurvedic Skin & Hair Wisdom from Arvaya",
   description:
-    "Articles on Ayurvedic skincare, haircare, Ritucharya (seasonal living), and ingredient science — written by Arvaya.",
+    "Articles on Ayurvedic skincare, haircare, Ritucharya (seasonal living), and ingredient science, written by Arvaya.",
 };
 
 const CATEGORIES = ["All", "Skin Ayurveda", "Hair Ayurveda", "Ritucharya", "Ingredients", "Lifestyle"];
@@ -27,7 +27,7 @@ export default async function BlogPage() {
           </h1>
           <p className="text-base text-[#6B5D4F] max-w-xl leading-relaxed">
             Arvaya writes about Ayurvedic skincare, haircare, ingredients, and seasonal living
-            (Ritucharya) — combining classical texts with evidence and practical clinic experience.
+            (Ritucharya), combining classical texts with evidence and practical clinic experience.
           </p>
         </div>
       </section>

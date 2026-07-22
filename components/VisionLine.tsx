@@ -1,4 +1,4 @@
-/* The brand's vision line — reused on the homepage and the About page so the
+/* The brand's vision line, reused on the homepage and the About page so the
    message stays identical everywhere. */
 export const VISION_TEXT =
   "Your Prakriti is one of a kind. Your Ayurveda should be, too.";

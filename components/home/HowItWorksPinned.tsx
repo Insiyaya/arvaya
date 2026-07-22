@@ -50,11 +50,11 @@ function StepCard({
 }) {
   const y = useTransform(scrollYProgress, [startAt, endAt], [50, 0]);
   const scale = useTransform(scrollYProgress, [startAt, endAt], [0.88, 1]);
-  // Derived from scale (not scroll progress directly) so it can never lag out of sync —
-  // fully visible exactly when the card finishes settling, regardless of scroll speed/jitter.
+  // Derived from scale (not scroll progress directly) so it can never lag out of
+  // sync: fully visible exactly when the card finishes settling, regardless of scroll speed/jitter.
   const opacity = useTransform(scale, [0.88, 0.91, 1], [0, 0.2, 1]);
 
-  // Number circle scale — pops in with a spring-like overshoot feel via keyframes
+  // Number circle scale, pops in with a spring-like overshoot feel via keyframes
   const numScale = useTransform(
     scrollYProgress,
     [startAt, startAt + 0.06, endAt - 0.02, endAt],
@@ -149,7 +149,7 @@ function RevealCTA({ scrollYProgress }: { scrollYProgress: MotionValue<number> }
         href="/quiz"
         className="inline-flex items-center gap-2 bg-gradient-to-br from-[#4A7C59] to-[#2F5233] text-[#FAF7F0] px-8 py-4 rounded-2xl font-medium hover:from-[#5C9068] hover:to-[#3A6440] transition-all hover:-translate-y-0.5 shadow-[0_8px_24px_rgba(47,82,51,0.28)]"
       >
-        Start Your Free Quiz — 3 Minutes
+        Start Your Free Quiz, 3 Minutes
         <ArrowRight size={16} />
       </Link>
     </motion.div>
@@ -212,7 +212,7 @@ export default function HowItWorksPinned() {
             ))}
           </div>
 
-          {/* CTA — appears when all 3 steps are revealed */}
+          {/* CTA, appears when all 3 steps are revealed */}
           <RevealCTA scrollYProgress={scrollYProgress} />
 
           {/* Progress dots */}

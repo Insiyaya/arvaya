@@ -4,7 +4,7 @@ import ProductCard from "@/components/product/ProductCard";
 import { fetchProducts } from "@/lib/api";
 
 export const metadata: Metadata = {
-  title: "All Products — Ayurvedic Skincare & Haircare",
+  title: "All Products, Ayurvedic Skincare & Haircare",
   description:
     "Browse Arvaya's full range of BAMS doctor-formulated Ayurvedic skincare and haircare products. Filter by dosha, concern, or category.",
 };

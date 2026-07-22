@@ -6,7 +6,7 @@ declare global {
   var __prisma: PrismaClient | undefined;
 }
 
-// Lazy singleton — only instantiates when first accessed, so the app starts
+// Lazy singleton, only instantiates when first accessed, so the app starts
 // without a DATABASE_URL (frontend/dummy-data pages won't trigger this).
 export function getPrisma(): PrismaClient {
   if (!globalThis.__prisma) {

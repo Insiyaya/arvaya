@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
         const data = await res.json();
         products = data.products ?? [];
       }
-    } catch { /* DB not connected yet — return recs without product details */ }
+    } catch { /* DB not connected yet, return recs without product details */ }
 
     const recommendedProducts = recommendations.map(rec => {
       const product = products.find((p: Record<string, unknown>) => p.slug === rec.productId);

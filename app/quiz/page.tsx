@@ -3,13 +3,13 @@ import Link from "next/link";
 import { ArrowRight, Clock, Lock, Star, Dna, Gift, FileText, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Prakriti Quiz — Discover Your Ayurvedic Constitution",
+  title: "Prakriti Quiz, Discover Your Ayurvedic Constitution",
   description:
     "15 questions, 3 minutes. Find your Prakriti (Ayurvedic constitution) and get a doctor-formulated personalised skincare and haircare routine.",
 };
 
 const WHAT_YOU_GET = [
-  { icon: Dna, title: "Your Prakriti profile", desc: "Vata, Pitta, Kapha, or a combination — explained in plain language" },
+  { icon: Dna, title: "Your Prakriti profile", desc: "Vata, Pitta, Kapha, or a combination, explained in plain language" },
   { icon: Gift, title: "Personalised product kit", desc: "3–5 products matched to your constitution, concerns, and climate" },
   { icon: FileText, title: "A reason for every pick", desc: "Arvaya explains why each product was chosen for you specifically" },
   { icon: Mail, title: "Saved results via email", desc: "Your kit and Prakriti profile sent to your inbox to revisit" },
@@ -33,7 +33,7 @@ export default function QuizLandingPage() {
               </h1>
 
               <p className="text-lg text-[#6B5D4F] leading-relaxed mb-6 max-w-lg">
-                Prakriti (प्रकृति) is your unique Ayurvedic constitution — the combination of Vata, Pitta,
+                Prakriti (प्रकृति) is your unique Ayurvedic constitution, the combination of Vata, Pitta,
                 and Kapha energies you were born with. Understanding it is the foundation of every
                 Ayurvedic recommendation Arvaya makes.
               </p>
@@ -87,7 +87,7 @@ export default function QuizLandingPage() {
                   <span className="font-medium text-[#2C2C2C]">A note from Arvaya:</span>{" "}
                   &ldquo;This quiz replicates the first 20 minutes of a clinic consultation. It can&apos;t
                   replace a direct examination, but it can give you the same starting framework used
-                  with every patient.&rdquo; — Arvaya
+                  with every patient.&rdquo; Arvaya
                 </p>
               </div>
             </div>

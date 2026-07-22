@@ -7,7 +7,7 @@ import AuthProvider from "@/components/providers/AuthProvider";
 
 export const metadata: Metadata = {
   title: {
-    default: "Arvaya — Ayurvedic Skincare & Haircare, Doctor Formulated",
+    default: "Arvaya, Ayurvedic Skincare & Haircare, Doctor Formulated",
     template: "%s | Arvaya Ayurveda",
   },
   description:
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://arvaya.in",
     siteName: "Arvaya Ayurveda",
-    title: "Arvaya — Ayurvedic Skincare & Haircare, Doctor Formulated",
+    title: "Arvaya, Ayurvedic Skincare & Haircare, Doctor Formulated",
     description:
       "Personalised Ayurvedic skincare and haircare formulated by Arvaya. Take the free Prakriti quiz.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Arvaya Ayurveda" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arvaya — Doctor Formulated Ayurvedic Skincare",
+    title: "Arvaya, Doctor Formulated Ayurvedic Skincare",
     description: "Personalised Ayurvedic skincare & haircare. Take your free Prakriti quiz.",
     images: ["/og-image.jpg"],
   },

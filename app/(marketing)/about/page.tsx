@@ -5,9 +5,9 @@ import { fetchTimeline, fetchCredentials, fetchPillars, type TimelineEntry, type
 import VisionLine from "@/components/VisionLine";
 
 export const metadata: Metadata = {
-  title: "About — Meet Arvaya",
+  title: "About, Meet Arvaya",
   description:
-    "The story behind Arvaya — formulated from clinical practice. Learn our philosophy of personalised, classical Ayurvedic skincare.",
+    "The story behind Arvaya, formulated from clinical practice. Learn our philosophy of personalised, classical Ayurvedic skincare.",
 };
 
 const ICON_MAP: Record<string, React.ReactNode> = {
@@ -37,7 +37,7 @@ export default async function AboutPage() {
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-widest text-[#4A7C59] mb-4">Our Story</p>
             <h1 className="font-heading text-5xl md:text-6xl font-light leading-[1.1] text-[#2F5233] mb-6">
-              Meet Arvaya —<br />
+              Meet Arvaya<br />
               <span className="italic">your family&apos;s Ayurvedic doctor.</span>
             </h1>
             <p className="text-xl text-[#6B5D4F] leading-relaxed max-w-2xl">
@@ -47,7 +47,7 @@ export default async function AboutPage() {
               care, accessible to everyone.
             </p>
 
-            {/* Vision line — shared with the homepage */}
+            {/* Vision line, shared with the homepage */}
             <div className="mt-8 pl-5 border-l-[3px] border-[#D4A24C] max-w-2xl">
               <VisionLine className="font-heading text-3xl md:text-[2.5rem] font-medium text-[#2F5233] leading-[1.15] tracking-tight" />
             </div>
@@ -78,30 +78,30 @@ export default async function AboutPage() {
 
             <div className="space-y-6 text-[#6B5D4F] leading-relaxed">
               <p className="text-lg">
-                Arvaya&apos;s founders grew up watching a grandmother make her own hair oil every month —
+                Arvaya&apos;s founders grew up watching a grandmother make her own hair oil every month,
                 spending a Sunday crushing herbs, warming oils, and straining the mixture through a
                 muslin cloth. Her hair, well into her seventies, was remarkable. It seemed like
                 everyone should know this. Most didn&apos;t.
               </p>
               <p>
                 Through BAMS training at SDM College of Ayurveda in Udupi, it became clear how
-                deeply this knowledge ran — and how badly it had been misrepresented in the market.
+                deeply this knowledge ran, and how badly it had been misrepresented in the market.
                 The &apos;Ayurvedic&apos; products found in stores had two or three token herbs in a base of
                 petroleum, parabens, and synthetic fragrance. That was not what the Charaka Samhita
                 described.
               </p>
               <p>
-                After completing that degree and a diploma in Trichology, a clinic opened —
+                After completing that degree and a diploma in Trichology, a clinic opened,
                 focused on skin and hair conditions, problems that biomedicine often
                 addresses symptomatically but Ayurveda approaches at the root cause. Over twelve
                 years, thousands of patients came through with concerns ranging from Pitta-type hair
                 fall triggered by stress, to Kapha-dominant acne that no cleanser was touching.
               </p>
               <p>
-                In 2018, patients started going home with formulations prepared in-house — an
+                In 2018, patients started going home with formulations prepared in-house, an
                 Ashwagandha night cream for Vata skin, a Bhringraj oil calibrated for Pitta-driven
                 hair fall. The results were consistent. The requests multiplied. By 2021, there was
-                enough validation — and enough demand — to launch Arvaya.
+                enough validation, and enough demand, to launch Arvaya.
               </p>
               <p>
                 Every product is still formulated by Arvaya. Every quiz recommendation is based on
@@ -113,7 +113,7 @@ export default async function AboutPage() {
                 <p className="font-heading text-lg text-[#2F5233] italic">
                   &ldquo;Your skin is not broken. It just needs to be understood.&rdquo;
                 </p>
-                <p className="text-sm text-[#6B5D4F]/70 mt-1">— Arvaya</p>
+                <p className="text-sm text-[#6B5D4F]/70 mt-1">Arvaya</p>
               </div>
             </div>
           </div>
@@ -211,7 +211,7 @@ export default async function AboutPage() {
             Ready to know your Prakriti?
           </h2>
           <p className="text-[#FAF7F0]/70 mb-8 max-w-md mx-auto">
-            Take Arvaya&apos;s 3-minute quiz and get a personalised product routine — the same
+            Take Arvaya&apos;s 3-minute quiz and get a personalised product routine, the same
             approach used in clinic.
           </p>
           <Link href="/quiz" className="inline-flex items-center gap-2 bg-[#D4A24C] text-[#1A3A1F] px-8 py-4 rounded-2xl font-medium hover:bg-[#E8C07A] transition-all hover:-translate-y-0.5">

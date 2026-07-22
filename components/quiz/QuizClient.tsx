@@ -121,7 +121,7 @@ export default function QuizClient({ questions }: { questions: QuizQuestion[] })
         <div className="max-w-2xl mx-auto">
           <div className="flex items-center justify-between mb-3">
             <span className="text-xs font-medium text-[#4A7C59]">
-              {question.sectionTitle} — Section {question.section}
+              {question.sectionTitle}, Section {question.section}
             </span>
             <span className="text-xs text-[#6B5D4F]">
               {currentIndex + 1} / {questions.length}

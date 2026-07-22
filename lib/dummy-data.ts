@@ -22,7 +22,7 @@ export const PRODUCTS = [
     howToUse:
       "After cleansing, take 3–4 drops on fingertips. Gently press onto face in upward circular motions. Use nightly for best results. For Pitta skin, apply on a thin layer of rose water first.",
     doctorNote:
-      "Arvaya recommends this serum especially for patients with Pitta-dominant skin who experience pigmentation after sun exposure. The Chandana calms reactive skin while Kumkuma traditionally supports brightening. — Arvaya",
+      "Arvaya recommends this serum especially for patients with Pitta-dominant skin who experience pigmentation after sun exposure. The Chandana calms reactive skin while Kumkuma traditionally supports brightening. Arvaya",
     images: ["/products/kumkumadi-1.jpg"],
     stock: 45,
     featured: true,
@@ -52,7 +52,7 @@ export const PRODUCTS = [
     howToUse:
       "Warm slightly. Part hair and apply directly to scalp in sections. Massage in circular motions for 5 minutes. Leave for minimum 1 hour or overnight. Wash with mild shampoo. Use 2–3 times per week.",
     doctorNote:
-      "Bhringraj has been studied for its potential to support hair follicle health. Arvaya recommends overnight oiling for Vata types prone to dryness and scalp tension. — Arvaya",
+      "Bhringraj has been studied for its potential to support hair follicle health. Arvaya recommends overnight oiling for Vata types prone to dryness and scalp tension. Arvaya",
     images: ["/products/bhringraj-1.jpg"],
     stock: 62,
     featured: true,
@@ -82,7 +82,7 @@ export const PRODUCTS = [
     howToUse:
       "Dampen face. Take a coin-sized amount, lather on hands, and apply in gentle circular motions. Rinse thoroughly with cool water. Use morning and night.",
     doctorNote:
-      "For patients with Kapha-Pitta skin presenting with frequent breakouts, Arvaya often starts with this cleanser before adding actives. Neem is cooling and clarifying without being aggressive. — Arvaya",
+      "For patients with Kapha-Pitta skin presenting with frequent breakouts, Arvaya often starts with this cleanser before adding actives. Neem is cooling and clarifying without being aggressive. Arvaya",
     images: ["/products/neem-tulsi-1.jpg"],
     stock: 78,
     featured: true,
@@ -110,9 +110,9 @@ export const PRODUCTS = [
       "Rich texture deeply nourishes Vata-type dry, mature skin",
     ],
     howToUse:
-      "After evening cleansing and serum, take a small amount and warm between fingers. Press gently into face, neck, and décolletage. Do not rub — press to encourage absorption.",
+      "After evening cleansing and serum, take a small amount and warm between fingers. Press gently into face, neck, and décolletage. Do not rub, press to encourage absorption.",
     doctorNote:
-      "Arvaya formulated this for patients experiencing 'skin fatigue' — the dullness and dehydration that comes from stress, poor sleep, and seasonal changes. Ashwagandha's adaptogenic properties make it uniquely suited for the night routine. — Arvaya",
+      "Arvaya formulated this for patients experiencing 'skin fatigue', the dullness and dehydration that comes from stress, poor sleep, and seasonal changes. Ashwagandha's adaptogenic properties make it uniquely suited for the night routine. Arvaya",
     images: ["/products/ashwagandha-cream-1.jpg"],
     stock: 34,
     featured: true,
@@ -134,7 +134,7 @@ export const PRODUCTS = [
       "Triphala (Amalaki, Bibhitaki, Haritaki) has been used for thousands of years in Ayurveda for its balancing properties. This hair mask combines Triphala powder with Shikakai, egg-free protein, and cold-pressed oils for a weekly deep treatment.",
     ingredients: ["Amalaki (Amla)", "Bibhitaki", "Haritaki", "Shikakai", "Reetha (Soapnut)", "Argan Oil", "Fenugreek"],
     benefits: [
-      "Balancing for all three doshas — suitable for all hair types",
+      "Balancing for all three doshas, suitable for all hair types",
       "Traditionally used to strengthen hair from root to tip",
       "Shikakai gently cleanses and adds natural shine",
       "Supports scalp microbiome balance",
@@ -142,7 +142,7 @@ export const PRODUCTS = [
     howToUse:
       "Mix 2 tablespoons with warm water or yogurt to form a paste. Apply to scalp and lengths. Cover with a warm towel. Leave for 30–45 minutes. Rinse thoroughly. Use weekly.",
     doctorNote:
-      "Triphala's tridoshic nature makes this mask suitable for almost everyone. It's Arvaya's first recommendation for patients unsure of their hair type. — Arvaya",
+      "Triphala's tridoshic nature makes this mask suitable for almost everyone. It's Arvaya's first recommendation for patients unsure of their hair type. Arvaya",
     images: ["/products/triphala-mask-1.jpg"],
     stock: 91,
     featured: false,
@@ -172,7 +172,7 @@ export const PRODUCTS = [
     howToUse:
       "After cleansing, hold 20cm from face and mist 2–3 times. Gently press into skin before it dries. Can also be used throughout the day for a cooling refresh. Store in refrigerator in summer.",
     doctorNote:
-      "Rose water is one of Ayurveda's most time-tested skincare ingredients. For patients in hot climates or those with Pitta skin, Arvaya recommends misting before each step of their routine. — Arvaya",
+      "Rose water is one of Ayurveda's most time-tested skincare ingredients. For patients in hot climates or those with Pitta skin, Arvaya recommends misting before each step of their routine. Arvaya",
     images: ["/products/rose-toner-1.jpg"],
     stock: 55,
     featured: false,
@@ -185,9 +185,9 @@ export const BLOG_POSTS = [
   {
     id: "1",
     slug: "vata-pitta-kapha-skin-types",
-    title: "What Your Dosha Means for Your Skin — A Doctor's Guide",
+    title: "What Your Dosha Means for Your Skin, A Doctor's Guide",
     excerpt:
-      "In Ayurveda, your skin type isn't just oily or dry — it's an expression of your unique Prakriti (प्रकृति), or constitution. Arvaya breaks down what Vata, Pitta, and Kapha skin look like, and how to care for each.",
+      "In Ayurveda, your skin type isn't just oily or dry, it's an expression of your unique Prakriti (प्रकृति), or constitution. Arvaya breaks down what Vata, Pitta, and Kapha skin look like, and how to care for each.",
     category: "Skin Ayurveda",
     author: "Arvaya",
     readTime: 7,
@@ -199,7 +199,7 @@ export const BLOG_POSTS = [
     slug: "ritucharya-seasonal-skincare",
     title: "Ritucharya: Adjusting Your Skincare for Each Season",
     excerpt:
-      "Ritucharya (ऋतुचर्या) — the Ayurvedic science of seasonal living — tells us that what works in winter won't work in summer. Here's how to adapt your skin and hair routine across India's six seasons.",
+      "Ritucharya (ऋतुचर्या), the Ayurvedic science of seasonal living, tells us that what works in winter won't work in summer. Here's how to adapt your skin and hair routine across India's six seasons.",
     category: "Ritucharya",
     author: "Arvaya",
     readTime: 9,
@@ -227,7 +227,7 @@ export const TESTIMONIALS = [
     location: "Bengaluru",
     rating: 5,
     title: "Finally, skincare that understands my skin",
-    body: "I've struggled with oily, acne-prone skin for years. The quiz recommended the Neem Tulsi cleanser and Ashwagandha night cream — my combination skin needed exactly that balance. After 6 weeks, my pores look visibly smaller and I have fewer breakouts. The explanation about my Kapha-Pitta constitution finally made my skin make sense to me.",
+    body: "I've struggled with oily, acne-prone skin for years. The quiz recommended the Neem Tulsi cleanser and Ashwagandha night cream, my combination skin needed exactly that balance. After 6 weeks, my pores look visibly smaller and I have fewer breakouts. The explanation about my Kapha-Pitta constitution finally made my skin make sense to me.",
     product: "Neem & Tulsi Clarifying Cleanser",
     verified: true,
   },
@@ -237,7 +237,7 @@ export const TESTIMONIALS = [
     location: "Mumbai",
     rating: 5,
     title: "The Bhringraj oil stopped my hair fall in 2 months",
-    body: "I was sceptical — hair fall runs in my family. But the quiz showed I was Vata-dominant with scalp dryness as a root cause, not genetics alone. The Bhringraj oil twice a week, and I genuinely count fewer hairs in the drain now. Arvaya's reasoning in the results page made me trust the process.",
+    body: "I was sceptical, hair fall runs in my family. But the quiz showed I was Vata-dominant with scalp dryness as a root cause, not genetics alone. The Bhringraj oil twice a week, and I genuinely count fewer hairs in the drain now. Arvaya's reasoning in the results page made me trust the process.",
     product: "Bhringraj Scalp Revival Oil",
     verified: true,
   },
@@ -247,14 +247,14 @@ export const TESTIMONIALS = [
     location: "Chennai",
     rating: 5,
     title: "The quiz is genuinely accurate",
-    body: "I've done many skin quizzes before — this one felt different. The questions about my lifestyle, diet, and the Chennai climate actually changed my results. The Kumkumadi serum it recommended worked beautifully on my pigmentation. And knowing Arvaya formulated it, not a marketing team, gave me confidence.",
+    body: "I've done many skin quizzes before, this one felt different. The questions about my lifestyle, diet, and the Chennai climate actually changed my results. The Kumkumadi serum it recommended worked beautifully on my pigmentation. And knowing Arvaya formulated it, not a marketing team, gave me confidence.",
     product: "Kumkumadi Radiance Serum",
     verified: true,
   },
 ];
 
 export const QUIZ_QUESTIONS = [
-  // Section A — About You
+  // Section A, About You
   {
     id: "age",
     section: "A",
@@ -296,13 +296,13 @@ export const QUIZ_QUESTIONS = [
       { value: "polluted-urban", label: "Heavy urban pollution (Delhi, Mumbai)" },
     ],
   },
-  // Section B — Prakriti
+  // Section B, Prakriti
   {
     id: "body-frame",
     section: "B",
     sectionTitle: "Your Prakriti (Constitution)",
     question: "Which best describes your natural body frame?",
-    hint: "Prakriti (प्रकृति) is your unique constitution — the natural balance of energies you were born with.",
+    hint: "Prakriti (प्रकृति) is your unique constitution, the natural balance of energies you were born with.",
     type: "single",
     options: [
       { value: "lean-variable", label: "Lean, find it hard to gain weight, variable appetite", dosha: "vata", points: 3 },
@@ -334,7 +334,7 @@ export const QUIZ_QUESTIONS = [
       { value: "steady-calm", label: "Steady, calm, takes time to start but endures well", dosha: "kapha", points: 2 },
     ],
   },
-  // Section C — Skin
+  // Section C, Skin
   {
     id: "skin-concern",
     section: "C",
@@ -357,10 +357,10 @@ export const QUIZ_QUESTIONS = [
     question: "How does your skin feel by mid-afternoon (without products)?",
     type: "single",
     options: [
-      { value: "oily", label: "Shiny all over — oily skin" },
-      { value: "dry", label: "Tight and dull — dry skin" },
-      { value: "combination", label: "Oily T-zone, dry cheeks — combination" },
-      { value: "normal", label: "Comfortable, no major issues — normal" },
+      { value: "oily", label: "Shiny all over, oily skin" },
+      { value: "dry", label: "Tight and dull, dry skin" },
+      { value: "combination", label: "Oily T-zone, dry cheeks, combination" },
+      { value: "normal", label: "Comfortable, no major issues, normal" },
     ],
   },
   {
@@ -370,10 +370,10 @@ export const QUIZ_QUESTIONS = [
     question: "What does your current skincare routine look like?",
     type: "single",
     options: [
-      { value: "none", label: "Nothing — just water or soap" },
-      { value: "basic", label: "Basic — cleanser and maybe a moisturiser" },
-      { value: "moderate", label: "Moderate — cleanser, toner, serum, moisturiser" },
-      { value: "elaborate", label: "Elaborate — multiple actives, SPF, eye cream, etc." },
+      { value: "none", label: "Nothing, just water or soap" },
+      { value: "basic", label: "Basic, cleanser and maybe a moisturiser" },
+      { value: "moderate", label: "Moderate, cleanser, toner, serum, moisturiser" },
+      { value: "elaborate", label: "Elaborate, multiple actives, SPF, eye cream, etc." },
     ],
   },
   {
@@ -390,7 +390,7 @@ export const QUIZ_QUESTIONS = [
       { value: "water", label: "Hard water" },
     ],
   },
-  // Section D — Hair
+  // Section D, Hair
   {
     id: "hair-concern",
     section: "D",
@@ -413,10 +413,10 @@ export const QUIZ_QUESTIONS = [
     question: "What is your natural hair texture?",
     type: "single",
     options: [
-      { value: "straight", label: "Straight — falls flat, gets oily quickly" },
-      { value: "wavy", label: "Wavy — naturally some wave or body" },
-      { value: "curly", label: "Curly — defined curls, prone to frizz" },
-      { value: "coily", label: "Coily / kinky — tight coils, very dry" },
+      { value: "straight", label: "Straight, falls flat, gets oily quickly" },
+      { value: "wavy", label: "Wavy, naturally some wave or body" },
+      { value: "curly", label: "Curly, defined curls, prone to frizz" },
+      { value: "coily", label: "Coily / kinky, tight coils, very dry" },
     ],
   },
   {
@@ -445,7 +445,7 @@ export const QUIZ_QUESTIONS = [
       { value: "multiple", label: "Multiple treatments" },
     ],
   },
-  // Section E — Lifestyle
+  // Section E, Lifestyle
   {
     id: "diet",
     section: "E",
@@ -466,9 +466,9 @@ export const QUIZ_QUESTIONS = [
     question: "How would you rate your sleep quality?",
     type: "single",
     options: [
-      { value: "good", label: "Good — I sleep 7–8 hours, wake refreshed" },
-      { value: "average", label: "Average — some disturbances, feel okay" },
-      { value: "poor", label: "Poor — difficulty falling/staying asleep, wake tired" },
+      { value: "good", label: "Good, I sleep 7–8 hours, wake refreshed" },
+      { value: "average", label: "Average, some disturbances, feel okay" },
+      { value: "poor", label: "Poor, difficulty falling/staying asleep, wake tired" },
     ],
   },
 ];

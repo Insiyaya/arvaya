@@ -235,7 +235,7 @@ export default function QuizResultsPage() {
 
                 <button className="w-full flex items-center justify-center gap-2 bg-[#D4A24C] text-[#1A3A1F] py-4 rounded-xl font-medium hover:bg-[#E8C07A] transition-all hover:-translate-y-0.5 text-base">
                   <ShoppingCart size={18} />
-                  Add Kit to Cart — {formatPrice(bundlePrice)}
+                  Add Kit to Cart, {formatPrice(bundlePrice)}
                 </button>
               </div>
             </>
@@ -258,7 +258,7 @@ export default function QuizResultsPage() {
                 <p className="text-[#6B5D4F] mb-6 text-sm">
                   {saveState === "error"
                     ? "Something went wrong saving this result. You can still view it below any time."
-                    : "Your Prakriti profile and personalised kit are saved to your account — visit it anytime from My Account."}
+                    : "Your Prakriti profile and personalised kit are saved to your account, visit it anytime from My Account."}
                 </p>
                 <Link
                   href="/account"
@@ -274,7 +274,7 @@ export default function QuizResultsPage() {
                   Save your results
                 </h2>
                 <p className="text-[#6B5D4F] mb-4 text-sm">
-                  Create a free account and your Prakriti profile, kit, and quiz history are saved automatically — no re-taking the quiz next time.
+                  Create a free account and your Prakriti profile, kit, and quiz history are saved automatically, no re-taking the quiz next time.
                 </p>
                 <Link
                   href="/signup"

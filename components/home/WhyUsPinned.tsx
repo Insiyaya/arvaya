@@ -5,7 +5,7 @@ import { useScroll, useTransform, motion, type MotionValue } from "framer-motion
 import { Wind, Flame, Droplets, Fingerprint, Leaf, type LucideIcon } from "lucide-react";
 import VisionLine from "@/components/VisionLine";
 
-/* ─── Data — the three doshas that compose your Prakriti ──────────────────── */
+/* ─── Data, the three doshas that compose your Prakriti ──────────────────── */
 interface Pillar {
   Icon: LucideIcon;
   number: string;
@@ -50,12 +50,12 @@ const PILLARS: Pillar[] = [
     term: "प्रकृति",
     label: "Prakriti",
     element: "Your constitution",
-    desc: "The balance of all three you're born with — matched by every Arvaya routine.",
+    desc: "The balance of all three you're born with, matched by every Arvaya routine.",
     flipFrom: 90,
   },
 ];
 
-// Progress thresholds — each card gets a 0.20 window, 0.06 gap between them.
+// Progress thresholds, each card gets a 0.20 window, 0.06 gap between them.
 // All 4 complete by progress = 0.90, giving breathing room before the sticky releases.
 const THRESHOLDS: [number, number][] = [
   [0.03, 0.21],
@@ -65,7 +65,7 @@ const THRESHOLDS: [number, number][] = [
 ];
 
 /* ─── Card with back-to-front flip ───────────────────────────────────────── */
-// Back (green) and front (white) are separate layers — avoids the "invisible at 90°"
+// Back (green) and front (white) are separate layers, avoids the "invisible at 90°"
 // glitch that happens with a single backface-visibility approach.
 function FlipCard({
   pillar,
@@ -89,8 +89,8 @@ function FlipCard({
 
   // White front rotates in from its edge direction
   const frontRotate = useTransform(scrollYProgress, [startAt, endAt], [flipFrom, 0]);
-  // Derived from rotation (not scroll progress directly) so it can never lag out of sync —
-  // fully visible exactly when the flip completes, regardless of scroll speed/jitter.
+  // Derived from rotation (not scroll progress directly) so it can never lag out of
+  // sync: fully visible exactly when the flip completes, regardless of scroll speed/jitter.
   const frontOpacity = useTransform(
     frontRotate,
     [flipFrom, flipFrom * 0.6, 0],
@@ -156,13 +156,13 @@ export default function WhyUsPinned() {
   // offset ["start start", "end end"]:
   //   progress 0 = container-top at viewport-top (sticky kicks in)
   //   progress 1 = container-bottom at viewport-bottom (sticky releases)
-  // With height 380vh: extra scroll = 280vh — plenty for 4 cards.
+  // With height 380vh: extra scroll = 280vh, plenty for 4 cards.
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  // Heading drifts up + gently fades as cards reveal — shifts focus to cards
+  // Heading drifts up + gently fades as cards reveal, shifts focus to cards
   const headingY = useTransform(scrollYProgress, [0, 1], [0, -20]);
   const headingOpacity = useTransform(
     scrollYProgress,
@@ -175,7 +175,7 @@ export default function WhyUsPinned() {
   const orbX2 = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-    /* 380vh = sticky lasts ~280vh of real scroll — comfortably reveals all 4 cards */
+    /* 380vh = sticky lasts ~280vh of real scroll, comfortably reveals all 4 cards */
     <div ref={containerRef} style={{ height: "380vh" }} className="relative">
       <div
         className="sticky top-0 h-screen overflow-hidden bg-gradient-to-br from-[#F5EFE0] via-[#FAF7F0] to-[#F5EFE0]
@@ -213,7 +213,7 @@ export default function WhyUsPinned() {
             <VisionLine className="font-heading text-lg sm:text-xl md:text-2xl font-medium text-[#2C2C2C] max-w-xl mx-auto leading-snug" />
           </motion.div>
 
-          {/* 4-card grid — fixed heights so it always fits within any viewport */}
+          {/* 4-card grid, fixed heights so it always fits within any viewport */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 w-full">
             {PILLARS.map((pillar, i) => (
               <FlipCard

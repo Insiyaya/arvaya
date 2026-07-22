@@ -34,7 +34,7 @@ function HeroSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left — text */}
+          {/* Left, text */}
           <div className="max-w-xl">
             <p
               className="text-xs font-medium uppercase tracking-[0.22em] text-[#4A7C59] mb-5"
@@ -61,9 +61,9 @@ function HeroSection() {
               className="text-lg text-[#6B5D4F] leading-relaxed mb-8 max-w-lg"
               style={{ animation: "fade-up 0.7s 0.2s ease-out both" }}
             >
-              Every skin and hair concern has roots in your unique प्रकृति (Prakriti) —
+              Every skin and hair concern has roots in your unique प्रकृति (Prakriti),
               your Ayurvedic constitution. Formulations born in a doctor&apos;s clinic,
-              matched to <em>you</em> — never a generic skin type.
+              matched to <em>you</em>, never a generic skin type.
             </p>
 
             <div
@@ -87,7 +87,7 @@ function HeroSection() {
 
           </div>
 
-          {/* Right — layered visual */}
+          {/* Right, layered visual */}
           <div className="relative lg:h-[540px] flex items-center justify-center">
             <HeroVisual />
           </div>
@@ -328,7 +328,7 @@ function NewsletterSection() {
 
             <div className="relative z-10 p-8 md:p-14">
               <div className="grid md:grid-cols-[1fr_360px] gap-10 items-center">
-                {/* Left — copy */}
+                {/* Left, copy */}
                 <div>
                   <div className="flex items-center gap-2 mb-5">
                     <span className="w-6 h-px bg-[#A8C09A]" />
@@ -344,13 +344,13 @@ function NewsletterSection() {
 
                   <p className="text-[#FAF7F0]/70 text-base leading-relaxed max-w-md mb-6">
                     Every Sunday, Arvaya shares one Ayurvedic tip for your skin, hair, or
-                    lifestyle — based on the season and clinical observations. Practical wisdom,
+                    lifestyle, based on the season and clinical observations. Practical wisdom,
                     not marketing.
                   </p>
 
                 </div>
 
-                {/* Right — form */}
+                {/* Right, form */}
                 <div className="bg-white/8 border border-white/12 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
                   <div className="flex items-center gap-3 mb-5">
                     <div className="w-10 h-10 rounded-xl bg-[#D4A24C]/20 flex items-center justify-center">
@@ -388,7 +388,7 @@ function NewsletterSection() {
                       Last week's tip
                     </p>
                     <p className="text-xs text-[#FAF7F0]/65 leading-relaxed italic">
-                      &ldquo;Why Kapha types should avoid dry shampoo — and what to use instead.&rdquo;
+                      &ldquo;Why Kapha types should avoid dry shampoo, and what to use instead.&rdquo;
                     </p>
                   </div>
                 </div>

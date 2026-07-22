@@ -166,12 +166,12 @@ function generateReason(productId: string, answers: QuizAnswers, doshaResult: Do
   const hasPollution = (answers["skin-exposure"] as string[] | undefined)?.includes("pollution");
 
   const reasons: Record<string, string> = {
-    "kumkumadi-face-serum": `Selected for your ${doshaLabel}-dominant profile and concern about ${skinConcern}. Kumkumadi's 16 classical herbs work with your Prakriti — saffron and sandalwood are especially beneficial for ${dosha === "pitta" ? "cooling reactive, pigmentation-prone Pitta skin" : "brightening dull Vata-type skin"}.`,
+    "kumkumadi-face-serum": `Selected for your ${doshaLabel}-dominant profile and concern about ${skinConcern}. Kumkumadi's 16 classical herbs work with your Prakriti, saffron and sandalwood are especially beneficial for ${dosha === "pitta" ? "cooling reactive, pigmentation-prone Pitta skin" : "brightening dull Vata-type skin"}.`,
     "neem-tulsi-face-wash": `Chosen for your ${skinConcern.includes("acne") ? "acne-prone skin" : "oily skin tendency"}. Neem's clarifying and Tulsi's balancing properties address ${dosha === "kapha" ? "Kapha-type congestion and enlarged pores" : "Pitta-type inflammation and breakouts"} without stripping moisture.`,
     "ashwagandha-night-cream": `Recommended for your ${doshaLabel} Prakriti and concern about ${skinConcern}. Ashwagandha's adaptogenic properties${hasAc ? ", combined with AC dehydration your skin faces," : ""} make overnight deep nourishment essential for ${dosha}-type skin.`,
     "rose-sandalwood-toner": `Selected for your sensitive ${dosha === "pitta" ? "Pitta" : doshaLabel} skin${hasPollution ? " and daily pollution exposure" : ""}. Rose water and sandalwood hydrosols have a classically cooling, Pitta-soothing effect that prepares your skin for the next steps in your routine.`,
-    "bhringraj-hair-oil": `Chosen for your concern about ${hairConcern}. Bhringraj — Keshraj, the 'ruler of hair' in Ayurvedic texts — works on the ${dosha === "vata" ? "root cause of Vata-type hair fall: a dry, undernourished scalp" : dosha === "pitta" ? "Pitta-driven inflammation that triggers excessive shedding" : "Kapha-type scalp buildup that blocks follicles"}.`,
-    "triphala-hair-mask": `Triphala is tridoshic — it works for all constitutions. For your ${hairConcern} concern, the weekly mask's Amalaki (vitamin C-rich Amla) and Shikakai provide deep cleansing and strengthening that daily shampoo cannot.`,
+    "bhringraj-hair-oil": `Chosen for your concern about ${hairConcern}. Bhringraj, Keshraj, the 'ruler of hair' in Ayurvedic texts, works on the ${dosha === "vata" ? "root cause of Vata-type hair fall: a dry, undernourished scalp" : dosha === "pitta" ? "Pitta-driven inflammation that triggers excessive shedding" : "Kapha-type scalp buildup that blocks follicles"}.`,
+    "triphala-hair-mask": `Triphala is tridoshic, it works for all constitutions. For your ${hairConcern} concern, the weekly mask's Amalaki (vitamin C-rich Amla) and Shikakai provide deep cleansing and strengthening that daily shampoo cannot.`,
   };
 
   return reasons[productId] || `Recommended based on your ${doshaLabel} Prakriti and your skin/hair concerns.`;

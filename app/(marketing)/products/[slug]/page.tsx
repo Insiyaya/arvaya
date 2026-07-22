@@ -20,7 +20,7 @@ export async function generateMetadata({
   const product = await fetchProduct(slug);
   if (!product) return { title: "Product Not Found" };
   return {
-    title: `${product.name} — Arvaya Ayurveda`,
+    title: `${product.name} Arvaya Ayurveda`,
     description: product.shortDesc ?? undefined,
   };
 }

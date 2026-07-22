@@ -3,13 +3,13 @@ import { MessageCircle, Mail, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: "Get in touch with Arvaya. Questions about your Prakriti, our products, or orders — we're here. Chat on WhatsApp for fastest response.",
+  description: "Get in touch with Arvaya. Questions about your Prakriti, our products, or orders, we're here. Chat on WhatsApp for fastest response.",
 };
 
 const FAQS = [
   {
     q: "How do I know which products are right for my skin?",
-    a: "Take our free Prakriti quiz — 15 questions, 3 minutes. The quiz matches your constitution (Prakriti), skin type, concerns, and lifestyle to a personalised 3–5 product routine formulated by Arvaya.",
+    a: "Take our free Prakriti quiz, 15 questions, 3 minutes. The quiz matches your constitution (Prakriti), skin type, concerns, and lifestyle to a personalised 3–5 product routine formulated by Arvaya.",
   },
   {
     q: "Are your products safe for sensitive skin?",
@@ -29,7 +29,7 @@ const FAQS = [
   },
   {
     q: "What is your return policy?",
-    a: "We offer a 7-day return window for unopened products. For opened products, we offer a 30-day satisfaction guarantee — if you've followed your personalised routine for 30 days and are not satisfied, contact us for a resolution.",
+    a: "We offer a 7-day return window for unopened products. For opened products, we offer a 30-day satisfaction guarantee, if you've followed your personalised routine for 30 days and are not satisfied, contact us for a resolution.",
   },
   {
     q: "Are your products tested on animals?",
@@ -144,8 +144,8 @@ export default function ContactPage() {
                 </div>
                 <h3 className="font-heading text-xl mb-2">Chat on WhatsApp</h3>
                 <p className="text-[#FAF7F0]/70 text-sm leading-relaxed mb-5">
-                  For the fastest response — product queries, order tracking, or a quick question for
-                  Arvaya — WhatsApp is the best way to reach us.
+                  For the fastest response, product queries, order tracking, or a quick question for
+                  Arvaya, WhatsApp is the best way to reach us.
                 </p>
                 <a
                   href="https://wa.me/919876543210?text=Hi%20Arvaya%21%20I%20have%20a%20question."
