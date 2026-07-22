@@ -3,10 +3,13 @@
 import Link from "next/link";
 import { ShoppingCart, ArrowRight, Trash2, Leaf, Minus, Plus } from "lucide-react";
 import { useCart } from "@/components/providers/CartProvider";
+import { bundleDiscount } from "@/lib/cart";
 import { formatPrice } from "@/lib/utils";
 
 export default function CartContents() {
   const { items, subtotal, count, setQty, remove, clear, ready } = useCart();
+  const bundle = bundleDiscount(items);
+  const total = subtotal - bundle.amount;
 
   // Avoid an empty-cart flash before localStorage hydrates
   if (!ready) return <div className="py-24" />;
@@ -101,6 +104,12 @@ export default function CartContents() {
             <span className="text-[#6B5D4F]">Subtotal ({count} {count === 1 ? "item" : "items"})</span>
             <span className="text-[#2C2C2C]">{formatPrice(subtotal)}</span>
           </div>
+          {bundle.amount > 0 && (
+            <div className="flex justify-between text-sm">
+              <span className="text-[#4A7C59]">Kit saving ({bundle.label})</span>
+              <span className="text-[#4A7C59]">−{formatPrice(bundle.amount)}</span>
+            </div>
+          )}
           <div className="flex justify-between text-sm">
             <span className="text-[#6B5D4F]">Shipping</span>
             <span className="text-[#4A7C59]">Free</span>
@@ -108,7 +117,7 @@ export default function CartContents() {
         </div>
         <div className="flex justify-between font-heading text-lg mb-5">
           <span className="text-[#2C2C2C]">Total</span>
-          <span className="text-[#2F5233]">{formatPrice(subtotal)}</span>
+          <span className="text-[#2F5233]">{formatPrice(total)}</span>
         </div>
         <Link
           href="/checkout"
