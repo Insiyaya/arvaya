@@ -109,6 +109,11 @@ for x in range(xcb - rx, xcb + rx):
         base[y, x, :3] = (wood_top * (1 - f) + wood_bot * f).astype(np.uint8)
         base[y, x, 3] = 255
 
+# Clear any stray hand fragment left in the base above the pot (the hand's own
+# knuckle highlight sat just outside the cutout mask and stayed static while the
+# hand moved). This corridor is empty otherwise; the pot rim is well below y=380.
+base[0:380, 600:1200, 3] = 0
+
 Image.fromarray(base, "RGBA").save(f"{OUT}/hero-base.png")
 Image.fromarray(hand_arr, "RGBA").save(f"{OUT}/hero-hand.png")
 Image.fromarray(stick_arr, "RGBA").save(f"{OUT}/hero-stick.png")
