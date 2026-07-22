@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Clock, Lock, Star } from "lucide-react";
+import { ArrowRight, Clock, Lock, Star, Dna, Gift, FileText, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Prakriti Quiz — Discover Your Ayurvedic Constitution",
@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 };
 
 const WHAT_YOU_GET = [
-  { icon: "🧬", title: "Your Prakriti profile", desc: "Vata, Pitta, Kapha, or a combination — explained in plain language" },
-  { icon: "🎁", title: "Personalised product kit", desc: "3–5 products matched to your constitution, concerns, and climate" },
-  { icon: "📝", title: "A reason for every pick", desc: "Dr. Farheen explains why each product was chosen for you specifically" },
-  { icon: "📧", title: "Saved results via email", desc: "Your kit and Prakriti profile sent to your inbox to revisit" },
+  { icon: Dna, title: "Your Prakriti profile", desc: "Vata, Pitta, Kapha, or a combination — explained in plain language" },
+  { icon: Gift, title: "Personalised product kit", desc: "3–5 products matched to your constitution, concerns, and climate" },
+  { icon: FileText, title: "A reason for every pick", desc: "Arvaya explains why each product was chosen for you specifically" },
+  { icon: Mail, title: "Saved results via email", desc: "Your kit and Prakriti profile sent to your inbox to revisit" },
 ];
 
 export default function QuizLandingPage() {
@@ -24,7 +24,7 @@ export default function QuizLandingPage() {
             <div>
               <div className="inline-flex items-center gap-2 bg-[#D4A24C]/15 border border-[#D4A24C]/30 px-3 py-1.5 rounded-full mb-6">
                 <Star size={12} className="text-[#D4A24C] fill-[#D4A24C]" />
-                <span className="text-xs font-medium text-[#B8882E]">Free · No account needed · 3 minutes</span>
+                <span className="text-xs font-medium text-[#B8882E]">Free · 3 minutes · Saved to your profile</span>
               </div>
 
               <h1 className="font-heading text-5xl md:text-6xl font-light leading-[1.1] text-[#2F5233] mb-6">
@@ -35,12 +35,12 @@ export default function QuizLandingPage() {
               <p className="text-lg text-[#6B5D4F] leading-relaxed mb-6 max-w-lg">
                 Prakriti (प्रकृति) is your unique Ayurvedic constitution — the combination of Vata, Pitta,
                 and Kapha energies you were born with. Understanding it is the foundation of every
-                Ayurvedic recommendation Dr. Farheen makes.
+                Ayurvedic recommendation Arvaya makes.
               </p>
 
               <p className="text-base text-[#6B5D4F] leading-relaxed mb-8 max-w-lg">
                 This 15-question quiz covers your constitution, skin, hair, lifestyle, and local
-                climate. At the end, you get a personalised 3–5 product routine with Dr. Farheen&apos;s
+                climate. At the end, you get a personalised 3–5 product routine with Arvaya&apos;s
                 explanation for each pick.
               </p>
 
@@ -51,7 +51,7 @@ export default function QuizLandingPage() {
                 </div>
                 <div className="flex items-center gap-2 text-sm text-[#6B5D4F]">
                   <Lock size={15} className="text-[#4A7C59]" />
-                  No account required
+                  Private &amp; secure
                 </div>
               </div>
 
@@ -67,13 +67,13 @@ export default function QuizLandingPage() {
             {/* Right: what you get */}
             <div className="space-y-4">
               <p className="text-xs font-medium uppercase tracking-widest text-[#4A7C59] mb-5">What you get</p>
-              {WHAT_YOU_GET.map(({ icon, title, desc }) => (
+              {WHAT_YOU_GET.map(({ icon: Icon, title, desc }) => (
                 <div
                   key={title}
                   className="flex items-start gap-4 bg-white rounded-2xl p-5 border border-[#A8C09A]/25 hover:shadow-[0_4px_16px_rgba(47,82,51,0.10)] transition-shadow"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[#A8C09A]/15 flex items-center justify-center text-2xl flex-shrink-0">
-                    {icon}
+                  <div className="w-12 h-12 rounded-xl bg-[#A8C09A]/15 flex items-center justify-center text-[#4A7C59] flex-shrink-0">
+                    <Icon size={22} />
                   </div>
                   <div>
                     <p className="font-heading text-base text-[#2C2C2C] mb-1">{title}</p>
@@ -84,10 +84,10 @@ export default function QuizLandingPage() {
 
               <div className="bg-[#F5EFE0] rounded-2xl p-5 border border-[#D4A24C]/20 mt-4">
                 <p className="text-sm text-[#6B5D4F] leading-relaxed">
-                  <span className="font-medium text-[#2C2C2C]">A note from Dr. Farheen:</span>{" "}
-                  &ldquo;This quiz replicates the first 20 minutes of my clinic consultation. It can&apos;t
-                  replace a direct examination, but it can give you the same starting framework I use
-                  with every patient.&rdquo; — Dr. Farheen Husain, BAMS
+                  <span className="font-medium text-[#2C2C2C]">A note from Arvaya:</span>{" "}
+                  &ldquo;This quiz replicates the first 20 minutes of a clinic consultation. It can&apos;t
+                  replace a direct examination, but it can give you the same starting framework used
+                  with every patient.&rdquo; — Arvaya
                 </p>
               </div>
             </div>

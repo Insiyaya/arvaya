@@ -20,7 +20,7 @@ export default function WhatsAppButton() {
               <MessageCircle size={16} className="text-white" />
             </div>
             <div>
-              <p className="text-xs font-medium text-[#2C2C2C]">Dr. Farheen&apos;s Team</p>
+              <p className="text-xs font-medium text-[#2C2C2C]">Arvaya Team</p>
               <p className="text-[10px] text-[#4A7C59]">Typically replies in 1 hour</p>
             </div>
           </div>

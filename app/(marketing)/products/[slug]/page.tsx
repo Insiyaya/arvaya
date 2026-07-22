@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Star, ShoppingCart, ArrowRight, ChevronLeft, CheckCircle } from "lucide-react";
+import { Star, ShoppingCart, ArrowRight, ChevronLeft, CheckCircle, Leaf } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import ProductCard from "@/components/product/ProductCard";
 import { fetchProduct, fetchProducts } from "@/lib/api";
@@ -96,7 +96,7 @@ export default async function ProductDetailPage({
             <div>
               <div className="aspect-square rounded-[2rem] bg-gradient-to-br from-[#A8C09A]/20 via-[#F5EFE0] to-[#D4A24C]/15 flex items-center justify-center border border-[#A8C09A]/25 shadow-[0_16px_48px_rgba(47,82,51,0.12)] mb-4">
                 <div className="text-center">
-                  <div className="text-8xl mb-3">🌿</div>
+                  <div className="flex justify-center mb-3 text-[#4A7C59]"><Leaf size={72} strokeWidth={1.25} /></div>
                   {product.sanskritName && (
                     <p className="font-devanagari text-xl text-[#2F5233]/60">{product.sanskritName}</p>
                   )}
@@ -104,8 +104,8 @@ export default async function ProductDetailPage({
               </div>
               <div className="grid grid-cols-4 gap-3">
                 {[1, 2, 3, 4].map(i => (
-                  <div key={i} className="aspect-square rounded-xl bg-gradient-to-br from-[#A8C09A]/15 to-[#F5EFE0] border border-[#A8C09A]/20 flex items-center justify-center cursor-pointer hover:border-[#2F5233]/40 transition-colors">
-                    <span className="text-2xl">🌿</span>
+                  <div key={i} className="aspect-square rounded-xl bg-gradient-to-br from-[#A8C09A]/15 to-[#F5EFE0] border border-[#A8C09A]/20 flex items-center justify-center cursor-pointer hover:border-[#2F5233]/40 transition-colors text-[#4A7C59]">
+                    <Leaf size={20} />
                   </div>
                 ))}
               </div>
@@ -176,7 +176,7 @@ export default async function ProductDetailPage({
 
               <div className="flex flex-col gap-2 pt-5 border-t border-[#A8C09A]/25">
                 {[
-                  "Formulated by Dr. Farheen Husain, BAMS",
+                  "Formulated by Arvaya",
                   "100% natural ingredients",
                   "No parabens, sulfates, or synthetic fragrance",
                   "Free shipping above ₹999",

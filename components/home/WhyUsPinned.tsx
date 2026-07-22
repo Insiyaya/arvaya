@@ -2,44 +2,55 @@
 
 import { useRef } from "react";
 import { useScroll, useTransform, motion, type MotionValue } from "framer-motion";
-import { Home, Leaf, Sparkles, Heart, type LucideIcon } from "lucide-react";
+import { Wind, Flame, Droplets, Fingerprint, Leaf, type LucideIcon } from "lucide-react";
+import VisionLine from "@/components/VisionLine";
 
-/* ─── Data ────────────────────────────────────────────────────────────────── */
+/* ─── Data — the three doshas that compose your Prakriti ──────────────────── */
 interface Pillar {
   Icon: LucideIcon;
   number: string;
-  title: string;
+  term: string;    // Devanagari
+  label: string;   // transliteration
+  element: string;
   desc: string;
   flipFrom: number; // alternating direction feels dynamic
 }
 
 const PILLARS: Pillar[] = [
   {
-    Icon: Home,
+    Icon: Wind,
     number: "01",
-    title: "Homemade, Always",
-    desc: "Every remedy is made in small batches by hand, not on a factory line — Ayurveda, prepared simply.",
+    term: "वात",
+    label: "Vata",
+    element: "Air + Space",
+    desc: "The energy of movement. Vata skin leans dry and delicate.",
     flipFrom: -90,
   },
   {
-    Icon: Leaf,
+    Icon: Flame,
     number: "02",
-    title: "Classical Texts",
-    desc: "Formulations reference the Charaka Samhita and Ashtanga Hridayam — ancient wisdom, validated by modern science.",
+    term: "पित्त",
+    label: "Pitta",
+    element: "Fire + Water",
+    desc: "The energy of transformation. Pitta skin runs warm and reactive.",
     flipFrom: 90,
   },
   {
-    Icon: Sparkles,
+    Icon: Droplets,
     number: "03",
-    title: "Simple Over Complex",
-    desc: "One clean blend of natural ingredients beats a ten-step routine — simple formulas your skin actually needs.",
+    term: "कफ",
+    label: "Kapha",
+    element: "Earth + Water",
+    desc: "The energy of structure. Kapha skin is rich, resilient and calm.",
     flipFrom: -90,
   },
   {
-    Icon: Heart,
+    Icon: Fingerprint,
     number: "04",
-    title: "Chemical-Free",
-    desc: "No parabens, no sulfates, no synthetic fragrance — just cold-pressed oils and steam-distilled extracts.",
+    term: "प्रकृति",
+    label: "Prakriti",
+    element: "Your constitution",
+    desc: "The balance of all three you're born with — matched by every Arvaya routine.",
     flipFrom: 90,
   },
 ];
@@ -67,7 +78,7 @@ function FlipCard({
   startAt: number;
   endAt: number;
 }) {
-  const { Icon, number, title, desc, flipFrom } = pillar;
+  const { Icon, number, term, label, element, desc, flipFrom } = pillar;
 
   // Green back fades away as the flip begins
   const backOpacity = useTransform(
@@ -88,7 +99,7 @@ function FlipCard({
 
   return (
     // Fixed height so the grid never overflows the viewport regardless of screen size
-    <div className="relative h-[168px] sm:h-[200px] lg:h-[230px]">
+    <div className="relative h-[196px] sm:h-[224px] lg:h-[248px]">
       {/* ── Back face ─────────────────────────────────────────────────────── */}
       <motion.div
         style={{ opacity: backOpacity }}
@@ -96,7 +107,7 @@ function FlipCard({
                    flex flex-col items-center justify-center gap-2
                    shadow-[0_4px_20px_rgba(47,82,51,0.22)] pointer-events-none"
       >
-        <span className="text-[2rem] opacity-20">🌿</span>
+        <Leaf size={32} className="opacity-20 text-[#FAF7F0]" />
         <div className="w-8 h-px bg-[#FAF7F0]/10 rounded" />
       </motion.div>
 
@@ -105,11 +116,11 @@ function FlipCard({
         <motion.div
           style={{ rotateY: frontRotate, opacity: frontOpacity }}
           className="w-full h-full rounded-2xl bg-white border border-[#A8C09A]/25
-                     p-3.5 sm:p-5 flex flex-col
+                     p-3.5 sm:p-5 flex flex-col overflow-hidden
                      shadow-[0_4px_20px_rgba(47,82,51,0.08)]
                      hover:shadow-[0_8px_32px_rgba(47,82,51,0.15)] transition-shadow duration-300"
         >
-          <div className="flex items-center gap-2 mb-2.5 sm:mb-3.5">
+          <div className="flex items-center justify-between mb-1.5 sm:mb-2.5">
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#A8C09A]/20 flex items-center justify-center shrink-0">
               <Icon size={15} className="text-[#2F5233] sm:hidden" />
               <Icon size={18} className="text-[#2F5233] hidden sm:block" />
@@ -118,9 +129,17 @@ function FlipCard({
               {number}
             </span>
           </div>
-          <h3 className="font-heading text-[13px] sm:text-base lg:text-[17px] text-[#2C2C2C] mb-1 sm:mb-2 leading-snug">
-            {title}
-          </h3>
+          <div className="flex items-baseline gap-2 mb-0.5 sm:mb-1">
+            <span className="font-devanagari text-2xl sm:text-3xl lg:text-[2rem] text-[#2F5233] leading-none">
+              {term}
+            </span>
+            <span className="font-heading text-[13px] sm:text-base lg:text-lg text-[#2C2C2C]">
+              {label}
+            </span>
+          </div>
+          <p className="text-[9px] sm:text-[10px] font-medium uppercase tracking-widest text-[#4A7C59] mb-1 sm:mb-2">
+            {element}
+          </p>
           <p className="text-[11px] sm:text-xs lg:text-sm text-[#6B5D4F] leading-relaxed line-clamp-3 flex-1">
             {desc}
           </p>
@@ -184,24 +203,21 @@ export default function WhyUsPinned() {
             className="text-center"
           >
             <p className="text-[10px] sm:text-xs font-medium uppercase tracking-widest text-[#4A7C59] mb-2">
-              Why Arvaya
+              Know Your Nature
             </p>
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light text-[#2F5233] mb-2.5 sm:mb-3">
-              Rooted in science,
+              Three energies,
               <br />
-              <span className="italic">guided by tradition.</span>
+              one unique <span className="font-devanagari">प्रकृति</span>.
             </h2>
-            <p className="text-xs sm:text-sm md:text-base text-[#6B5D4F] max-w-lg mx-auto leading-relaxed">
-              5,000 years of Ayurvedic medicine combined with rigorous ingredient sourcing —
-              for products that actually work.
-            </p>
+            <VisionLine className="font-heading text-lg sm:text-xl md:text-2xl font-medium text-[#2C2C2C] max-w-xl mx-auto leading-snug" />
           </motion.div>
 
           {/* 4-card grid — fixed heights so it always fits within any viewport */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 w-full">
             {PILLARS.map((pillar, i) => (
               <FlipCard
-                key={pillar.title}
+                key={pillar.label}
                 pillar={pillar}
                 scrollYProgress={scrollYProgress}
                 startAt={THRESHOLDS[i][0]}

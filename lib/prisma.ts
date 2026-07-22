@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
 
 declare global {
   // eslint-disable-next-line no-var
@@ -9,7 +10,8 @@ declare global {
 // without a DATABASE_URL (frontend/dummy-data pages won't trigger this).
 export function getPrisma(): PrismaClient {
   if (!globalThis.__prisma) {
-    globalThis.__prisma = new PrismaClient();
+    const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+    globalThis.__prisma = new PrismaClient({ adapter });
   }
   return globalThis.__prisma;
 }

@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ShoppingCart, Menu, X, Leaf } from "lucide-react";
+import { useSession, signOut } from "next-auth/react";
+import { ShoppingCart, Menu, X, Leaf, User, LogOut } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -18,6 +19,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -73,8 +75,35 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* Right: Cart + mobile toggle */}
+            {/* Right: Account + Cart + mobile toggle */}
             <div className="flex items-center gap-2">
+              {status === "authenticated" ? (
+                <div className="hidden md:flex items-center gap-1">
+                  <Link
+                    href="/account"
+                    className="flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium text-[#6B5D4F] hover:text-[#2F5233] hover:bg-[#A8C09A]/20 transition-colors"
+                  >
+                    <User size={17} />
+                    {session.user?.name?.split(" ")[0] || "Account"}
+                  </Link>
+                  <button
+                    onClick={() => signOut({ callbackUrl: "/" })}
+                    aria-label="Sign out"
+                    className="p-2 rounded-full text-[#6B5D4F] hover:text-[#2F5233] hover:bg-[#A8C09A]/20 transition-colors"
+                  >
+                    <LogOut size={17} />
+                  </button>
+                </div>
+              ) : (
+                <Link
+                  href="/login"
+                  className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-[#6B5D4F] hover:text-[#2F5233] hover:bg-[#A8C09A]/20 transition-colors"
+                >
+                  <User size={17} />
+                  Login
+                </Link>
+              )}
+
               <Link
                 href="/cart"
                 aria-label="Shopping cart"
@@ -120,6 +149,39 @@ export default function Navbar() {
                   </Link>
                 );
               })}
+
+              <div className="border-t border-[#A8C09A]/20 mt-2 pt-2">
+                {status === "authenticated" ? (
+                  <>
+                    <Link
+                      href="/account"
+                      className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
+                        pathname === "/account"
+                          ? "text-[#2F5233] bg-[#A8C09A]/20"
+                          : "text-[#6B5D4F] hover:text-[#2F5233] hover:bg-[#A8C09A]/10"
+                      }`}
+                    >
+                      <User size={16} />
+                      My Account
+                    </Link>
+                    <button
+                      onClick={() => signOut({ callbackUrl: "/" })}
+                      className="w-full flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium text-[#6B5D4F] hover:text-[#2F5233] hover:bg-[#A8C09A]/10 transition-all"
+                    >
+                      <LogOut size={16} />
+                      Sign Out
+                    </button>
+                  </>
+                ) : (
+                  <Link
+                    href="/login"
+                    className="flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium text-[#6B5D4F] hover:text-[#2F5233] hover:bg-[#A8C09A]/10 transition-all"
+                  >
+                    <User size={16} />
+                    Login / Sign Up
+                  </Link>
+                )}
+              </div>
             </nav>
           </div>
         )}

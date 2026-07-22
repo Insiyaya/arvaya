@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { ArrowRight, ShoppingCart, Share2, CheckCircle } from "lucide-react";
+import { ArrowRight, ShoppingCart, Share2, CheckCircle, FileQuestion, Leaf, UserCircle } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
 import type { DoshaResult, ProductRecommendation } from "@/lib/quiz-engine";
 import type { Product } from "@/lib/api";
@@ -49,9 +50,11 @@ function DoshaMeter({ scores }: { scores: Record<string, number> }) {
 export default function QuizResultsPage() {
   const params = useParams();
   const id = params.id as string;
+  const { status: sessionStatus } = useSession();
   const [data, setData] = useState<ResultData | null>(null);
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
 
   useEffect(() => {
     const stored = localStorage.getItem(`arvaya-result-${id}`);
@@ -65,6 +68,19 @@ export default function QuizResultsPage() {
       .catch(() => {})
       .finally(() => setLoading(false));
   }, [id]);
+
+  // Auto-save results to the signed-in user's profile
+  useEffect(() => {
+    if (sessionStatus !== "authenticated" || !data || saveState !== "idle") return;
+    setSaveState("saving");
+    fetch("/api/quiz/save", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then(res => setSaveState(res.ok ? "saved" : "error"))
+      .catch(() => setSaveState("error"));
+  }, [sessionStatus, data, saveState]);
 
   if (loading) {
     return (
@@ -81,7 +97,7 @@ export default function QuizResultsPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#FAF7F0]">
         <div className="text-center max-w-md px-4">
-          <div className="text-6xl mb-4">🌿</div>
+          <div className="flex justify-center mb-4 text-[#4A7C59]"><FileQuestion size={56} strokeWidth={1.25} /></div>
           <h2 className="font-heading text-2xl text-[#2F5233] mb-3">Results not found</h2>
           <p className="text-[#6B5D4F] mb-6">This quiz result may have expired. Please take the quiz again to get your personalised kit.</p>
           <Link href="/quiz/start" className="inline-flex items-center gap-2 bg-[#2F5233] text-[#FAF7F0] px-6 py-3 rounded-xl font-medium hover:bg-[#4A7C59] transition-colors">
@@ -142,7 +158,7 @@ export default function QuizResultsPage() {
             </h2>
             <p className="text-[#6B5D4F] max-w-xl mx-auto">
               {recommendedProducts.length > 0
-                ? `Dr. Farheen selected each product below based on your ${doshaResult.label} Prakriti, your specific skin and hair concerns, and your lifestyle answers.`
+                ? `Arvaya selected each product below based on your ${doshaResult.label} Prakriti, your specific skin and hair concerns, and your lifestyle answers.`
                 : "Products will be matched to your Prakriti once added to the database."}
             </p>
           </div>
@@ -155,8 +171,8 @@ export default function QuizResultsPage() {
                     key={product.id}
                     className="bg-white rounded-2xl border border-[#A8C09A]/25 p-6 flex flex-col sm:flex-row gap-6"
                   >
-                    <div className="w-full sm:w-32 h-32 rounded-xl bg-gradient-to-br from-[#A8C09A]/20 to-[#F5EFE0] flex items-center justify-center flex-shrink-0 text-4xl">
-                      🌿
+                    <div className="w-full sm:w-32 h-32 rounded-xl bg-gradient-to-br from-[#A8C09A]/20 to-[#F5EFE0] flex items-center justify-center flex-shrink-0 text-[#4A7C59]">
+                      <Leaf size={36} />
                     </div>
 
                     <div className="flex-1">
@@ -231,22 +247,50 @@ export default function QuizResultsPage() {
       <section className="section-padding bg-[#F5EFE0]">
         <div className="container-max">
           <div className="max-w-xl mx-auto text-center">
-            <h2 className="font-heading text-3xl font-light text-[#2F5233] mb-3">
-              Save your results
-            </h2>
-            <p className="text-[#6B5D4F] mb-6 text-sm">
-              Enter your email and we&apos;ll send your Prakriti profile and kit to your inbox — so you can refer back anytime.
-            </p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="flex-1 px-4 py-3 rounded-xl border border-[#A8C09A]/50 bg-white text-[#2C2C2C] text-sm focus:outline-none focus:ring-2 focus:ring-[#2F5233]/30 focus:border-[#2F5233]"
-              />
-              <button type="submit" className="bg-[#2F5233] text-[#FAF7F0] px-5 py-3 rounded-xl font-medium text-sm hover:bg-[#4A7C59] transition-colors whitespace-nowrap">
-                Save Results
-              </button>
-            </form>
+            {sessionStatus === "authenticated" ? (
+              <>
+                <div className="flex justify-center mb-3 text-[#4A7C59]">
+                  <UserCircle size={40} strokeWidth={1.25} />
+                </div>
+                <h2 className="font-heading text-3xl font-light text-[#2F5233] mb-3">
+                  {saveState === "saved" ? "Saved to your profile" : saveState === "error" ? "Couldn't save automatically" : "Saving to your profile…"}
+                </h2>
+                <p className="text-[#6B5D4F] mb-6 text-sm">
+                  {saveState === "error"
+                    ? "Something went wrong saving this result. You can still view it below any time."
+                    : "Your Prakriti profile and personalised kit are saved to your account — visit it anytime from My Account."}
+                </p>
+                <Link
+                  href="/account"
+                  className="inline-flex items-center gap-2 bg-[#2F5233] text-[#FAF7F0] px-6 py-3 rounded-xl font-medium text-sm hover:bg-[#4A7C59] transition-colors"
+                >
+                  Go to My Account
+                  <ArrowRight size={15} />
+                </Link>
+              </>
+            ) : (
+              <>
+                <h2 className="font-heading text-3xl font-light text-[#2F5233] mb-3">
+                  Save your results
+                </h2>
+                <p className="text-[#6B5D4F] mb-4 text-sm">
+                  Create a free account and your Prakriti profile, kit, and quiz history are saved automatically — no re-taking the quiz next time.
+                </p>
+                <Link
+                  href="/signup"
+                  className="inline-flex items-center gap-2 bg-[#2F5233] text-[#FAF7F0] px-6 py-3 rounded-xl font-medium text-sm hover:bg-[#4A7C59] transition-colors mb-4"
+                >
+                  Create Free Account
+                  <ArrowRight size={15} />
+                </Link>
+                <p className="text-xs text-[#6B5D4F] mb-4">
+                  Already have an account?{" "}
+                  <Link href="/login" className="text-[#2F5233] underline underline-offset-2 hover:text-[#4A7C59]">
+                    Sign in
+                  </Link>
+                </p>
+              </>
+            )}
 
             <button className="inline-flex items-center gap-2 text-sm text-[#6B5D4F] hover:text-[#2F5233] transition-colors mt-2">
               <Share2 size={14} />

@@ -3,26 +3,26 @@
 import { useRef } from "react";
 import { useScroll, useTransform, motion, type MotionValue } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowDown, ClipboardList, Gift, Sparkles } from "lucide-react";
 
 const STEPS = [
   {
     number: "01",
     title: "Take the Prakriti Quiz",
     desc: "15 questions covering your constitution, skin, hair, lifestyle, and climate. Takes 3 minutes.",
-    icon: "📋",
+    icon: ClipboardList,
   },
   {
     number: "02",
     title: "Get Your Kit",
-    desc: "Dr. Husain's algorithm maps your answers to a 3–5 product routine with a personalised reason for each.",
-    icon: "🎁",
+    desc: "Arvaya's algorithm maps your answers to a 3–5 product routine with a personalised reason for each.",
+    icon: Gift,
   },
   {
     number: "03",
     title: "See Real Results",
     desc: "Ayurvedic formulations work with your body's natural rhythms. Most customers see visible changes in 4–8 weeks.",
-    icon: "✨",
+    icon: Sparkles,
   },
 ] as const;
 
@@ -71,7 +71,7 @@ function StepCard({
         style={{ scale: numScale }}
         className="w-16 h-16 rounded-full bg-gradient-to-br from-[#4A7C59] to-[#2F5233] text-[#FAF7F0] flex items-center justify-center mb-4 shadow-[0_8px_24px_rgba(47,82,51,0.28)] relative z-10"
       >
-        <span className="text-2xl">{step.icon}</span>
+        <step.icon size={26} className="text-[#FAF7F0]" />
       </motion.div>
 
       <span className="text-xs font-medium text-[#4A7C59] font-heading tracking-widest mb-1">
@@ -164,7 +164,6 @@ export default function HowItWorksPinned() {
     offset: ["start start", "end end"],
   });
 
-  const hintOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0]);
   const doneOpacity = useTransform(scrollYProgress, [0.84, 0.92], [0, 1]);
 
   // Background blob parallax
@@ -225,16 +224,10 @@ export default function HowItWorksPinned() {
             </div>
             <div className="relative h-5 flex items-center justify-center">
               <motion.p
-                style={{ opacity: hintOpacity }}
-                className="absolute whitespace-nowrap text-[11px] text-[#6B5D4F]/50 tracking-widest uppercase"
-              >
-                ↓  Scroll through the steps
-              </motion.p>
-              <motion.p
                 style={{ opacity: doneOpacity }}
-                className="absolute whitespace-nowrap text-[11px] text-[#4A7C59]/80 tracking-widest uppercase font-medium"
+                className="absolute whitespace-nowrap flex items-center gap-1.5 text-[11px] text-[#4A7C59]/80 tracking-widest uppercase font-medium"
               >
-                ↓  Continue
+                <ArrowDown size={12} /> Continue
               </motion.p>
             </div>
           </div>

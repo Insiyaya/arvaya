@@ -5,6 +5,7 @@ import {
   CheckCircle,
   ChevronRight,
   Mail,
+  Leaf,
 } from "lucide-react";
 import ProductCard from "@/components/product/ProductCard";
 import {
@@ -19,6 +20,8 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import { StaggerReveal, StaggerItem } from "@/components/ui/StaggerReveal";
 import WhyUsPinned from "@/components/home/WhyUsPinned";
 import HowItWorksPinned from "@/components/home/HowItWorksPinned";
+import HeroVisual from "@/components/home/HeroVisual";
+import Typewriter from "@/components/home/Typewriter";
 
 /* ─── Hero ────────────────────────────────────────────────────────────────── */
 function HeroSection() {
@@ -33,23 +36,34 @@ function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left — text */}
           <div className="max-w-xl">
+            <p
+              className="text-xs font-medium uppercase tracking-[0.22em] text-[#4A7C59] mb-5"
+              style={{ animation: "fade-up 0.7s 0.05s ease-out both" }}
+            >
+              Recipes from a doctor&apos;s mind
+            </p>
+
             <h1
               className="font-heading text-5xl md:text-6xl lg:text-[4.5rem] font-light leading-[1.1] tracking-tight text-[#2F5233] mb-6"
               style={{ animation: "fade-up 0.7s 0.1s ease-out both" }}
             >
-              Ayurveda,{" "}
+              <span className="font-devanagari font-medium">आयुर्वेद</span>,{" "}
               <span className="italic text-[#4A7C59]">personalised</span>
               <br />
-              by a doctor.
+              for your{" "}
+              <Typewriter
+                words={["वात", "पित्त", "कफ", "प्रकृति"]}
+                className="font-devanagari font-medium text-[#4A7C59]"
+              />
             </h1>
 
             <p
               className="text-lg text-[#6B5D4F] leading-relaxed mb-8 max-w-lg"
               style={{ animation: "fade-up 0.7s 0.2s ease-out both" }}
             >
-              Every skin and hair concern has roots in your unique Prakriti (प्रकृति) — your
-              Ayurvedic constitution. Dr. Farheen Husain, BAMS, formulates products and recommends
-              routines matched to <em>you</em>, not a generic skin type.
+              Every skin and hair concern has roots in your unique प्रकृति (Prakriti) —
+              your Ayurvedic constitution. Formulations born in a doctor&apos;s clinic,
+              matched to <em>you</em> — never a generic skin type.
             </p>
 
             <div
@@ -73,46 +87,9 @@ function HeroSection() {
 
           </div>
 
-          {/* Right — card */}
-          <div
-            className="relative lg:h-[540px] flex items-center justify-center"
-            style={{ animation: "fade-up 0.8s 0.25s ease-out both" }}
-          >
-            <div className="relative w-full max-w-md mx-auto">
-              <div className="aspect-[4/5] rounded-[2.5rem] bg-gradient-to-br from-[#A8C09A]/30 via-[#F5EFE0] to-[#D4A24C]/20 flex items-center justify-center overflow-hidden border border-[#A8C09A]/30 shadow-[0_32px_80px_rgba(47,82,51,0.18)]">
-                <div className="text-center p-8">
-                  <div className="text-7xl mb-4 animate-[float_4s_ease-in-out_infinite]">🌺</div>
-                  <p className="font-heading text-2xl text-[#2F5233] mb-2">Dr. Farheen Husain</p>
-                  <p className="text-sm text-[#6B5D4F]">BAMS, Ayurvedic Physician</p>
-                  <p className="text-xs text-[#6B5D4F]/70 mt-1">12+ years of practice</p>
-                </div>
-              </div>
-
-              {/* Floating stat — bottom left */}
-              <div
-                className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-[0_8px_32px_rgba(47,82,51,0.14)] p-4 border border-[#A8C09A]/20"
-                style={{ animation: "fade-up 0.7s 0.5s ease-out both" }}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#D4A24C]/15 flex items-center justify-center">
-                    <Star size={18} className="text-[#D4A24C] fill-[#D4A24C]" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-heading font-medium text-[#2C2C2C]">4.8 / 5.0</p>
-                    <p className="text-xs text-[#6B5D4F]">2,400+ reviews</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating stat — top right */}
-              <div
-                className="absolute -top-4 -right-4 bg-[#2F5233] text-[#FAF7F0] rounded-2xl shadow-[0_8px_32px_rgba(47,82,51,0.3)] p-4 max-w-[160px]"
-                style={{ animation: "fade-up 0.7s 0.6s ease-out both" }}
-              >
-                <div className="text-2xl mb-1">✨</div>
-                <p className="text-xs font-medium leading-snug">Personalised kit in 15 questions</p>
-              </div>
-            </div>
+          {/* Right — layered visual */}
+          <div className="relative lg:h-[540px] flex items-center justify-center">
+            <HeroVisual />
           </div>
         </div>
       </div>
@@ -129,46 +106,35 @@ function DoctorSection() {
       <div className="container-max">
         <ScrollReveal>
           <div className="bg-gradient-to-br from-[#2F5233] via-[#274530] to-[#1A3A1F] rounded-[2rem] p-8 md:p-12 text-[#FAF7F0] relative overflow-hidden">
-            <div className="absolute right-8 top-8 opacity-10 text-[200px] leading-none pointer-events-none select-none">
-              🌿
+            <div className="absolute right-8 top-8 opacity-10 pointer-events-none select-none">
+              <Leaf size={200} strokeWidth={0.75} />
             </div>
             <div className="grid md:grid-cols-2 gap-10 items-center relative z-10">
               <div className="flex items-center gap-6">
                 <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-[#A8C09A]/20 border-2 border-[#A8C09A]/30 flex items-center justify-center flex-shrink-0">
-                  <span className="text-5xl">👩‍⚕️</span>
+                  <Leaf size={44} className="text-[#A8C09A]" />
                 </div>
                 <div>
-                  <p className="font-heading text-2xl md:text-3xl text-[#FAF7F0] mb-1">
-                    Dr. Farheen Husain
+                  <p className="font-heading text-2xl md:text-3xl text-[#FAF7F0]">
+                    Arvaya
                   </p>
-                  <p className="text-[#A8C09A] text-sm mb-3">BAMS (Ayurvedic Medicine & Surgery)</p>
-                  <div className="flex flex-wrap gap-2">
-                    {["12+ years practice", "Classical formulation", "Trichology"].map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs bg-[#FAF7F0]/10 border border-[#FAF7F0]/20 px-2 py-1 rounded-full text-[#FAF7F0]/80"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               </div>
               <div>
                 <p className="text-xs font-medium uppercase tracking-widest text-[#A8C09A] mb-4">
-                  The Founder
+                  Our Origin
                 </p>
                 <p className="text-[#FAF7F0]/85 leading-relaxed mb-6">
-                  &ldquo;I started Arvaya because my patients kept asking where they could buy the
-                  formulations I was recommending. The mass-market options were full of chemicals, and
-                  the &lsquo;Ayurvedic&rsquo; brands weren&apos;t actually rooted in classical texts. I decided to
-                  make what I&apos;d give my own family.&rdquo;
+                  &ldquo;Arvaya started because patients kept asking where they could buy the
+                  formulations being recommended to them. The mass-market options were full of chemicals, and
+                  the &lsquo;Ayurvedic&rsquo; brands weren&apos;t actually rooted in classical texts. So we
+                  made what we&apos;d give our own families.&rdquo;
                 </p>
                 <Link
                   href="/about"
                   className="inline-flex items-center gap-2 text-sm font-medium text-[#D4A24C] hover:text-[#E8C07A] transition-colors"
                 >
-                  Read her full story
+                  Read our full story
                   <ChevronRight size={16} />
                 </Link>
               </div>
@@ -289,7 +255,7 @@ function BlogSection({ posts }: { posts: BlogPost[] }) {
               The Arvaya Blog
             </p>
             <h2 className="font-heading text-4xl md:text-5xl font-light text-[#2F5233]">
-              Learn from the doctor.
+              Learn from Arvaya.
             </h2>
           </div>
           <Link
@@ -308,7 +274,7 @@ function BlogSection({ posts }: { posts: BlogPost[] }) {
                 className="group block h-full bg-white rounded-2xl border border-[#A8C09A]/25 overflow-hidden hover:shadow-[0_8px_32px_rgba(47,82,51,0.12)] transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="aspect-[16/9] bg-gradient-to-br from-[#A8C09A]/20 to-[#F5EFE0] flex items-center justify-center">
-                  <span className="text-4xl">🌿</span>
+                  <Leaf size={36} className="text-[#4A7C59]" />
                 </div>
                 <div className="p-5">
                   <div className="flex items-center gap-2 mb-3">
@@ -346,8 +312,8 @@ function NewsletterSection() {
         <ScrollReveal>
           <div className="relative bg-gradient-to-br from-[#2F5233] to-[#1A3A1F] rounded-[2rem] overflow-hidden shadow-[0_32px_80px_rgba(47,82,51,0.30)]">
             {/* Decorative large leaf */}
-            <div className="absolute right-0 top-0 h-full flex items-center pr-10 pointer-events-none select-none overflow-hidden">
-              <span className="text-[18rem] opacity-[0.06] leading-none">🌿</span>
+            <div className="absolute right-0 top-0 h-full flex items-center pr-10 pointer-events-none select-none overflow-hidden text-[#FAF7F0]">
+              <Leaf size={288} strokeWidth={0.5} className="opacity-[0.06]" />
             </div>
 
             {/* Dot grid texture */}
@@ -377,8 +343,8 @@ function NewsletterSection() {
                   </h2>
 
                   <p className="text-[#FAF7F0]/70 text-base leading-relaxed max-w-md mb-6">
-                    Every Sunday, Dr. Farheen shares one Ayurvedic tip for your skin, hair, or
-                    lifestyle — based on the season and her clinic observations. Practical wisdom,
+                    Every Sunday, Arvaya shares one Ayurvedic tip for your skin, hair, or
+                    lifestyle — based on the season and clinical observations. Practical wisdom,
                     not marketing.
                   </p>
 

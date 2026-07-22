@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ShoppingCart, Star } from "lucide-react";
+import { ShoppingCart, Star, Leaf } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import { formatPrice } from "@/lib/utils";
 
@@ -38,8 +38,8 @@ export default function ProductCard({
       <div className="relative aspect-square bg-gradient-to-br from-[#A8C09A]/20 to-[#F5EFE0] overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
-            <div className="w-20 h-20 mx-auto rounded-full bg-[#A8C09A]/20 flex items-center justify-center mb-2">
-              <span className="text-3xl">🌿</span>
+            <div className="w-20 h-20 mx-auto rounded-full bg-[#A8C09A]/20 flex items-center justify-center mb-2 text-[#4A7C59]">
+              <Leaf size={28} />
             </div>
             {sanskritName && <p className="font-devanagari text-sm text-[#2F5233]/50">{sanskritName}</p>}
           </div>

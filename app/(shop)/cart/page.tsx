@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ShoppingCart, ArrowRight, Trash2 } from "lucide-react";
+import { ShoppingCart, ArrowRight, Trash2, Leaf } from "lucide-react";
 
 export const metadata: Metadata = { title: "Your Cart" };
 
@@ -35,7 +35,7 @@ export default function CartPage() {
           <div className="space-y-4">
             {/* Cart item */}
             <div className="bg-white rounded-2xl border border-[#A8C09A]/25 p-5 flex gap-4">
-              <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-[#A8C09A]/20 to-[#F5EFE0] flex items-center justify-center text-3xl flex-shrink-0">🌿</div>
+              <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-[#A8C09A]/20 to-[#F5EFE0] flex items-center justify-center flex-shrink-0 text-[#4A7C59]"><Leaf size={28} /></div>
               <div className="flex-1">
                 <h3 className="font-heading text-base text-[#2C2C2C]">Kumkumadi Radiance Serum</h3>
                 <p className="text-sm text-[#6B5D4F] mb-2">30ml</p>

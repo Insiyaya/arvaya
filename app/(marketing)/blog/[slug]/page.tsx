@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Clock, ArrowRight } from "lucide-react";
+import { ArrowLeft, Clock, ArrowRight, Leaf } from "lucide-react";
 import { fetchBlogPost, fetchBlogPosts } from "@/lib/api";
 
 export async function generateStaticParams() {
@@ -86,7 +86,7 @@ export default async function BlogArticlePage({
                 <p className="text-lg text-[#6B5D4F] leading-relaxed mb-6">{post.excerpt}</p>
               )}
               <div className="flex items-center gap-4">
-                <div className="w-9 h-9 rounded-full bg-[#2F5233]/10 flex items-center justify-center text-lg">👩‍⚕️</div>
+                <div className="w-9 h-9 rounded-full bg-[#2F5233]/10 flex items-center justify-center text-[#2F5233]"><Leaf size={16} /></div>
                 <div>
                   {post.author && (
                     <p className="text-sm font-medium text-[#2C2C2C]">{post.author}</p>
@@ -106,8 +106,8 @@ export default async function BlogArticlePage({
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-[#A8C09A]/20 to-[#F5EFE0] flex items-center justify-center py-16">
-          <span className="text-8xl">🌿</span>
+        <div className="bg-gradient-to-br from-[#A8C09A]/20 to-[#F5EFE0] flex items-center justify-center py-16 text-[#4A7C59]">
+          <Leaf size={72} strokeWidth={1.25} />
         </div>
 
         <div className="section-padding">
@@ -134,7 +134,7 @@ export default async function BlogArticlePage({
                 <div className="bg-[#2F5233] rounded-2xl p-5 text-[#FAF7F0]">
                   <p className="font-heading text-lg mb-2">Get weekly Ayurvedic tips</p>
                   <p className="text-xs text-[#FAF7F0]/70 mb-4 leading-relaxed">
-                    Dr. Farheen sends one dosha tip every week — practical, seasonal, and evidence-based.
+                    Arvaya sends one dosha tip every week — practical, seasonal, and evidence-based.
                   </p>
                   <input
                     type="email"
@@ -149,7 +149,7 @@ export default async function BlogArticlePage({
                 <div className="bg-[#F5EFE0] rounded-2xl p-5 border border-[#D4A24C]/20">
                   <p className="font-heading text-base text-[#2F5233] mb-2">Know your Prakriti</p>
                   <p className="text-xs text-[#6B5D4F] mb-4 leading-relaxed">
-                    Take Dr. Farheen&apos;s free 3-minute quiz for a personalised routine based on your constitution.
+                    Take Arvaya&apos;s free 3-minute quiz for a personalised routine based on your constitution.
                   </p>
                   <Link href="/quiz" className="flex items-center justify-center gap-2 bg-[#2F5233] text-[#FAF7F0] py-2.5 rounded-lg text-sm font-medium hover:bg-[#4A7C59] transition-colors">
                     Take the Quiz
@@ -164,7 +164,7 @@ export default async function BlogArticlePage({
         {related.length > 0 && (
           <section className="section-padding bg-[#F5EFE0]">
             <div className="container-max">
-              <h2 className="font-heading text-3xl font-light text-[#2F5233] mb-8">More from Dr. Farheen</h2>
+              <h2 className="font-heading text-3xl font-light text-[#2F5233] mb-8">More from Arvaya</h2>
               <div className="grid sm:grid-cols-2 gap-6">
                 {related.map(r => (
                   <Link key={r.id} href={`/blog/${r.slug}`} className="group bg-white rounded-2xl border border-[#A8C09A]/25 p-5 hover:shadow-[0_8px_32px_rgba(47,82,51,0.12)] transition-all duration-300 hover:-translate-y-1">

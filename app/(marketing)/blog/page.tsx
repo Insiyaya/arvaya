@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Search } from "lucide-react";
+import { Search, Leaf } from "lucide-react";
 import { fetchBlogPosts } from "@/lib/api";
 
 export const metadata: Metadata = {
-  title: "Blog — Ayurvedic Skin & Hair Wisdom from Dr. Farheen Husain",
+  title: "Blog — Ayurvedic Skin & Hair Wisdom from Arvaya",
   description:
-    "Articles on Ayurvedic skincare, haircare, Ritucharya (seasonal living), and ingredient science — written by Dr. Farheen Husain, BAMS.",
+    "Articles on Ayurvedic skincare, haircare, Ritucharya (seasonal living), and ingredient science — written by Arvaya.",
 };
 
 const CATEGORIES = ["All", "Skin Ayurveda", "Hair Ayurveda", "Ritucharya", "Ingredients", "Lifestyle"];
@@ -26,7 +26,7 @@ export default async function BlogPage() {
             <span className="italic">explained plainly.</span>
           </h1>
           <p className="text-base text-[#6B5D4F] max-w-xl leading-relaxed">
-            Dr. Farheen writes about Ayurvedic skincare, haircare, ingredients, and seasonal living
+            Arvaya writes about Ayurvedic skincare, haircare, ingredients, and seasonal living
             (Ritucharya) — combining classical texts with evidence and practical clinic experience.
           </p>
         </div>
@@ -71,8 +71,8 @@ export default async function BlogPage() {
                 className="group block bg-white rounded-[2rem] border border-[#A8C09A]/25 overflow-hidden hover:shadow-[0_16px_48px_rgba(47,82,51,0.14)] transition-all duration-300 hover:-translate-y-1 mb-8"
               >
                 <div className="grid md:grid-cols-2">
-                  <div className="aspect-square md:aspect-auto min-h-[260px] bg-gradient-to-br from-[#A8C09A]/30 to-[#F5EFE0] flex items-center justify-center">
-                    <span className="text-7xl">🌿</span>
+                  <div className="aspect-square md:aspect-auto min-h-[260px] bg-gradient-to-br from-[#A8C09A]/30 to-[#F5EFE0] flex items-center justify-center text-[#4A7C59]">
+                    <Leaf size={64} strokeWidth={1.25} />
                   </div>
                   <div className="p-8 md:p-10 flex flex-col justify-center">
                     <div className="flex items-center gap-3 mb-4">
@@ -120,8 +120,8 @@ export default async function BlogPage() {
                       href={`/blog/${post.slug}`}
                       className="group bg-white rounded-2xl border border-[#A8C09A]/25 overflow-hidden hover:shadow-[0_8px_32px_rgba(47,82,51,0.12)] transition-all duration-300 hover:-translate-y-1"
                     >
-                      <div className="aspect-[16/9] bg-gradient-to-br from-[#A8C09A]/20 to-[#F5EFE0] flex items-center justify-center">
-                        <span className="text-5xl">🌿</span>
+                      <div className="aspect-[16/9] bg-gradient-to-br from-[#A8C09A]/20 to-[#F5EFE0] flex items-center justify-center text-[#4A7C59]">
+                        <Leaf size={44} strokeWidth={1.25} />
                       </div>
                       <div className="p-6">
                         <div className="flex items-center gap-2 mb-3">

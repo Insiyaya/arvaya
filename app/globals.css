@@ -90,6 +90,41 @@
   }
 }
 
+/*
+ * Hero scene animations — defined at top level (NOT inside @theme) so they are
+ * always emitted. Tailwind v4 only emits @theme keyframes that it sees
+ * referenced via scanned class names; these are driven by inline `animation`
+ * styles, which the scanner does not detect.
+ */
+
+/* Rising aroma/steam from the pot mouth */
+@keyframes aroma-rise {
+  0%   { opacity: 0; transform: translateY(4px) scaleY(0.85); }
+  35%  { opacity: 0.5; }
+  100% { opacity: 0; transform: translateY(-30px) scaleY(1.2); }
+}
+
+/* Blinking caret for the typewriter headline */
+@keyframes caret {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Subtle wrist tilt so the hand looks like it is actively sprinkling */
+@keyframes sprinkle-bob {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50%       { transform: rotate(-2.5deg) translateY(1.5px); }
+}
+
+/* A single herb fleck released from the fingertips and dropping into the pot,
+   fading as it lands in the broth */
+@keyframes herb-drop {
+  0%   { opacity: 0; transform: translate(0, -4px) rotate(0deg); }
+  15%  { opacity: 1; }
+  75%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(-3px, 76px) rotate(160deg); }
+}
+
 body {
   background-color: var(--color-cream);
   background-image:

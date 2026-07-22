@@ -38,7 +38,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm leading-relaxed mb-4 text-[#FAF7F0]/60">
-              Doctor-formulated Ayurvedic skincare and haircare, rooted in classical texts and personalised to your unique Prakriti (constitution). Founded by Dr. Farheen Husain, BAMS.
+              Doctor-formulated Ayurvedic skincare and haircare, rooted in classical texts and personalised to your unique Prakriti (constitution). Founded by Arvaya.
             </p>
 
             {/* Social */}

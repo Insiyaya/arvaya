@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const FAQS = [
   {
     q: "How do I know which products are right for my skin?",
-    a: "Take our free Prakriti quiz — 15 questions, 3 minutes. The quiz matches your constitution (Prakriti), skin type, concerns, and lifestyle to a personalised 3–5 product routine formulated by Dr. Farheen Husain, BAMS.",
+    a: "Take our free Prakriti quiz — 15 questions, 3 minutes. The quiz matches your constitution (Prakriti), skin type, concerns, and lifestyle to a personalised 3–5 product routine formulated by Arvaya.",
   },
   {
     q: "Are your products safe for sensitive skin?",
@@ -36,8 +36,8 @@ const FAQS = [
     a: "Arvaya is 100% cruelty-free. We do not test on animals, and we do not work with suppliers who do.",
   },
   {
-    q: "Can I consult Dr. Farheen Husain directly?",
-    a: "Dr. Husain offers limited online consultations through the Arvaya platform for complex skin and hair concerns. Contact us via WhatsApp or email and we'll check availability and fees.",
+    q: "Can I consult Arvaya's formulators directly?",
+    a: "Arvaya offers limited online consultations through the platform for complex skin and hair concerns. Contact us via WhatsApp or email and we'll check availability and fees.",
   },
 ];
 
@@ -52,8 +52,8 @@ export default function ContactPage() {
             We&apos;re here to help.
           </h1>
           <p className="text-lg text-[#6B5D4F] max-w-xl leading-relaxed">
-            Questions about your Prakriti, a product, or your order? Our team (and sometimes Dr.
-            Farheen herself) will respond within 24 hours. WhatsApp is fastest.
+            Questions about your Prakriti, a product, or your order? Our team will respond
+            within 24 hours. WhatsApp is fastest.
           </p>
         </div>
       </section>
@@ -145,7 +145,7 @@ export default function ContactPage() {
                 <h3 className="font-heading text-xl mb-2">Chat on WhatsApp</h3>
                 <p className="text-[#FAF7F0]/70 text-sm leading-relaxed mb-5">
                   For the fastest response — product queries, order tracking, or a quick question for
-                  Dr. Farheen — WhatsApp is the best way to reach us.
+                  Arvaya — WhatsApp is the best way to reach us.
                 </p>
                 <a
                   href="https://wa.me/919876543210?text=Hi%20Arvaya%21%20I%20have%20a%20question."

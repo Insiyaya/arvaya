@@ -22,7 +22,7 @@ export const PRODUCTS = [
     howToUse:
       "After cleansing, take 3–4 drops on fingertips. Gently press onto face in upward circular motions. Use nightly for best results. For Pitta skin, apply on a thin layer of rose water first.",
     doctorNote:
-      "I recommend this serum especially for patients with Pitta-dominant skin who experience pigmentation after sun exposure. The Chandana calms reactive skin while Kumkuma traditionally supports brightening. — Dr. Farheen Husain, BAMS",
+      "Arvaya recommends this serum especially for patients with Pitta-dominant skin who experience pigmentation after sun exposure. The Chandana calms reactive skin while Kumkuma traditionally supports brightening. — Arvaya",
     images: ["/products/kumkumadi-1.jpg"],
     stock: 45,
     featured: true,
@@ -52,7 +52,7 @@ export const PRODUCTS = [
     howToUse:
       "Warm slightly. Part hair and apply directly to scalp in sections. Massage in circular motions for 5 minutes. Leave for minimum 1 hour or overnight. Wash with mild shampoo. Use 2–3 times per week.",
     doctorNote:
-      "Bhringraj has been studied for its potential to support hair follicle health. I recommend overnight oiling for Vata types prone to dryness and scalp tension. — Dr. Farheen Husain, BAMS",
+      "Bhringraj has been studied for its potential to support hair follicle health. Arvaya recommends overnight oiling for Vata types prone to dryness and scalp tension. — Arvaya",
     images: ["/products/bhringraj-1.jpg"],
     stock: 62,
     featured: true,
@@ -82,7 +82,7 @@ export const PRODUCTS = [
     howToUse:
       "Dampen face. Take a coin-sized amount, lather on hands, and apply in gentle circular motions. Rinse thoroughly with cool water. Use morning and night.",
     doctorNote:
-      "For patients with Kapha-Pitta skin presenting with frequent breakouts, I often start with this cleanser before adding actives. Neem is cooling and clarifying without being aggressive. — Dr. Farheen Husain, BAMS",
+      "For patients with Kapha-Pitta skin presenting with frequent breakouts, Arvaya often starts with this cleanser before adding actives. Neem is cooling and clarifying without being aggressive. — Arvaya",
     images: ["/products/neem-tulsi-1.jpg"],
     stock: 78,
     featured: true,
@@ -112,7 +112,7 @@ export const PRODUCTS = [
     howToUse:
       "After evening cleansing and serum, take a small amount and warm between fingers. Press gently into face, neck, and décolletage. Do not rub — press to encourage absorption.",
     doctorNote:
-      "I formulated this for patients experiencing 'skin fatigue' — the dullness and dehydration that comes from stress, poor sleep, and seasonal changes. Ashwagandha's adaptogenic properties make it uniquely suited for the night routine. — Dr. Farheen Husain, BAMS",
+      "Arvaya formulated this for patients experiencing 'skin fatigue' — the dullness and dehydration that comes from stress, poor sleep, and seasonal changes. Ashwagandha's adaptogenic properties make it uniquely suited for the night routine. — Arvaya",
     images: ["/products/ashwagandha-cream-1.jpg"],
     stock: 34,
     featured: true,
@@ -142,7 +142,7 @@ export const PRODUCTS = [
     howToUse:
       "Mix 2 tablespoons with warm water or yogurt to form a paste. Apply to scalp and lengths. Cover with a warm towel. Leave for 30–45 minutes. Rinse thoroughly. Use weekly.",
     doctorNote:
-      "Triphala's tridoshic nature makes this mask suitable for almost everyone. It's my first recommendation for patients unsure of their hair type. — Dr. Farheen Husain, BAMS",
+      "Triphala's tridoshic nature makes this mask suitable for almost everyone. It's Arvaya's first recommendation for patients unsure of their hair type. — Arvaya",
     images: ["/products/triphala-mask-1.jpg"],
     stock: 91,
     featured: false,
@@ -172,7 +172,7 @@ export const PRODUCTS = [
     howToUse:
       "After cleansing, hold 20cm from face and mist 2–3 times. Gently press into skin before it dries. Can also be used throughout the day for a cooling refresh. Store in refrigerator in summer.",
     doctorNote:
-      "Rose water is one of Ayurveda's most time-tested skincare ingredients. For patients in hot climates or those with Pitta skin, I recommend misting before each step of their routine. — Dr. Farheen Husain, BAMS",
+      "Rose water is one of Ayurveda's most time-tested skincare ingredients. For patients in hot climates or those with Pitta skin, Arvaya recommends misting before each step of their routine. — Arvaya",
     images: ["/products/rose-toner-1.jpg"],
     stock: 55,
     featured: false,
@@ -187,9 +187,9 @@ export const BLOG_POSTS = [
     slug: "vata-pitta-kapha-skin-types",
     title: "What Your Dosha Means for Your Skin — A Doctor's Guide",
     excerpt:
-      "In Ayurveda, your skin type isn't just oily or dry — it's an expression of your unique Prakriti (प्रकृति), or constitution. Dr. Farheen Husain breaks down what Vata, Pitta, and Kapha skin look like, and how to care for each.",
+      "In Ayurveda, your skin type isn't just oily or dry — it's an expression of your unique Prakriti (प्रकृति), or constitution. Arvaya breaks down what Vata, Pitta, and Kapha skin look like, and how to care for each.",
     category: "Skin Ayurveda",
-    author: "Dr. Farheen Husain, BAMS",
+    author: "Arvaya",
     readTime: 7,
     publishedAt: "2024-03-15",
     image: "/blog/dosha-skin-guide.jpg",
@@ -201,7 +201,7 @@ export const BLOG_POSTS = [
     excerpt:
       "Ritucharya (ऋतुचर्या) — the Ayurvedic science of seasonal living — tells us that what works in winter won't work in summer. Here's how to adapt your skin and hair routine across India's six seasons.",
     category: "Ritucharya",
-    author: "Dr. Farheen Husain, BAMS",
+    author: "Arvaya",
     readTime: 9,
     publishedAt: "2024-02-28",
     image: "/blog/ritucharya-seasons.jpg",
@@ -213,7 +213,7 @@ export const BLOG_POSTS = [
     excerpt:
       "We look at the classical Ayurvedic evidence alongside modern research on Bhringraj (Eclipta prostrata). What does the science say about this revered herb, and how should you use it for best results?",
     category: "Hair Ayurveda",
-    author: "Dr. Farheen Husain, BAMS",
+    author: "Arvaya",
     readTime: 6,
     publishedAt: "2024-02-10",
     image: "/blog/bhringraj-research.jpg",
@@ -237,7 +237,7 @@ export const TESTIMONIALS = [
     location: "Mumbai",
     rating: 5,
     title: "The Bhringraj oil stopped my hair fall in 2 months",
-    body: "I was sceptical — hair fall runs in my family. But the quiz showed I was Vata-dominant with scalp dryness as a root cause, not genetics alone. The Bhringraj oil twice a week, and I genuinely count fewer hairs in the drain now. Dr. Husain's reasoning in the results page made me trust the process.",
+    body: "I was sceptical — hair fall runs in my family. But the quiz showed I was Vata-dominant with scalp dryness as a root cause, not genetics alone. The Bhringraj oil twice a week, and I genuinely count fewer hairs in the drain now. Arvaya's reasoning in the results page made me trust the process.",
     product: "Bhringraj Scalp Revival Oil",
     verified: true,
   },
@@ -247,7 +247,7 @@ export const TESTIMONIALS = [
     location: "Chennai",
     rating: 5,
     title: "The quiz is genuinely accurate",
-    body: "I've done many skin quizzes before — this one felt different. The questions about my lifestyle, diet, and the Chennai climate actually changed my results. The Kumkumadi serum it recommended worked beautifully on my pigmentation. And knowing a BAMS doctor formulated it, not a marketing team, gave me confidence.",
+    body: "I've done many skin quizzes before — this one felt different. The questions about my lifestyle, diet, and the Chennai climate actually changed my results. The Kumkumadi serum it recommended worked beautifully on my pigmentation. And knowing Arvaya formulated it, not a marketing team, gave me confidence.",
     product: "Kumkumadi Radiance Serum",
     verified: true,
   },

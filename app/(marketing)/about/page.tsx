@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Award, BookOpen, Users, Leaf } from "lucide-react";
 import { fetchTimeline, fetchCredentials, fetchPillars, type TimelineEntry, type Credential, type BrandPillar } from "@/lib/api";
+import VisionLine from "@/components/VisionLine";
 
 export const metadata: Metadata = {
-  title: "About — Meet Dr. Farheen Husain, BAMS",
+  title: "About — Meet Arvaya",
   description:
-    "The story behind Arvaya — formulated by Dr. Farheen Husain, BAMS, from her clinical practice. Learn our philosophy of personalised, classical Ayurvedic skincare.",
+    "The story behind Arvaya — formulated from clinical practice. Learn our philosophy of personalised, classical Ayurvedic skincare.",
 };
 
 const ICON_MAP: Record<string, React.ReactNode> = {
@@ -36,15 +37,20 @@ export default async function AboutPage() {
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-widest text-[#4A7C59] mb-4">Our Story</p>
             <h1 className="font-heading text-5xl md:text-6xl font-light leading-[1.1] text-[#2F5233] mb-6">
-              Meet Dr. Farheen Husain —<br />
+              Meet Arvaya —<br />
               <span className="italic">your family&apos;s Ayurvedic doctor.</span>
             </h1>
             <p className="text-xl text-[#6B5D4F] leading-relaxed max-w-2xl">
-              Arvaya began in a clinic, not a boardroom. Dr. Farheen Husain, BAMS, started formulating
-              products when her patients kept asking for what she was prescribing. What began as
-              personalised preparations for individual patients became a brand built on one principle:
-              classical Ayurvedic care, accessible to everyone.
+              Arvaya began in a clinic, not a boardroom. Formulating started when patients kept
+              asking for what was being prescribed to them. What began as personalised preparations
+              for individual patients became a brand built on one principle: classical Ayurvedic
+              care, accessible to everyone.
             </p>
+
+            {/* Vision line — shared with the homepage */}
+            <div className="mt-8 pl-5 border-l-[3px] border-[#D4A24C] max-w-2xl">
+              <VisionLine className="font-heading text-3xl md:text-[2.5rem] font-medium text-[#2F5233] leading-[1.15] tracking-tight" />
+            </div>
           </div>
         </div>
       </section>
@@ -56,9 +62,9 @@ export default async function AboutPage() {
             <div className="lg:sticky lg:top-24">
               <div className="aspect-[3/4] rounded-[2rem] bg-gradient-to-br from-[#A8C09A]/30 to-[#F5EFE0] flex items-center justify-center border border-[#A8C09A]/30 shadow-[0_32px_80px_rgba(47,82,51,0.15)]">
                 <div className="text-center p-8">
-                  <div className="text-8xl mb-4">👩‍⚕️</div>
-                  <p className="font-heading text-2xl text-[#2F5233] mb-1">Dr. Farheen Husain</p>
-                  <p className="text-sm text-[#6B5D4F] mb-4">BAMS, Ayurvedic Physician</p>
+                  <div className="flex justify-center mb-4 text-[#4A7C59]"><Leaf size={72} strokeWidth={1.25} /></div>
+                  <p className="font-heading text-2xl text-[#2F5233] mb-1">Arvaya</p>
+                  <p className="text-sm text-[#6B5D4F] mb-4">Doctor-Formulated Ayurveda</p>
                   <div className="flex flex-wrap gap-2 justify-center">
                     {["SDM College, Udupi", "Clinical Practice", "Trichology"].map(tag => (
                       <span key={tag} className="text-xs bg-[#2F5233]/10 text-[#2F5233] px-3 py-1 rounded-full border border-[#2F5233]/15">
@@ -72,34 +78,34 @@ export default async function AboutPage() {
 
             <div className="space-y-6 text-[#6B5D4F] leading-relaxed">
               <p className="text-lg">
-                I grew up watching my grandmother make her own hair oil every month — she&apos;d spend a
-                Sunday crushing herbs, warming oils, and straining the mixture through a muslin cloth.
-                Her hair, well into her seventies, was remarkable. I thought everyone knew this. I was
-                wrong.
+                Arvaya&apos;s founders grew up watching a grandmother make her own hair oil every month —
+                spending a Sunday crushing herbs, warming oils, and straining the mixture through a
+                muslin cloth. Her hair, well into her seventies, was remarkable. It seemed like
+                everyone should know this. Most didn&apos;t.
               </p>
               <p>
-                When I began my BAMS training at SDM College of Ayurveda in Udupi, I realised how
+                Through BAMS training at SDM College of Ayurveda in Udupi, it became clear how
                 deeply this knowledge ran — and how badly it had been misrepresented in the market.
-                The &apos;Ayurvedic&apos; products I found in stores had two or three token herbs in a base of
+                The &apos;Ayurvedic&apos; products found in stores had two or three token herbs in a base of
                 petroleum, parabens, and synthetic fragrance. That was not what the Charaka Samhita
                 described.
               </p>
               <p>
-                After completing my degree and a diploma in Trichology, I opened a clinic
-                focused on skin and hair conditions — problems that biomedicine often
+                After completing that degree and a diploma in Trichology, a clinic opened —
+                focused on skin and hair conditions, problems that biomedicine often
                 addresses symptomatically but Ayurveda approaches at the root cause. Over twelve
-                years, I saw thousands of patients with concerns ranging from Pitta-type hair fall
-                triggered by stress, to Kapha-dominant acne that no cleanser was touching.
+                years, thousands of patients came through with concerns ranging from Pitta-type hair
+                fall triggered by stress, to Kapha-dominant acne that no cleanser was touching.
               </p>
               <p>
-                In 2018, I began sending patients home with formulations I was preparing myself — an
+                In 2018, patients started going home with formulations prepared in-house — an
                 Ashwagandha night cream for Vata skin, a Bhringraj oil calibrated for Pitta-driven
-                hair fall. The results were consistent. The requests multiplied. By 2021, I had
+                hair fall. The results were consistent. The requests multiplied. By 2021, there was
                 enough validation — and enough demand — to launch Arvaya.
               </p>
               <p>
-                Every product is still formulated by me. Every quiz recommendation is based on the
-                same logic I use in my clinic. The quiz cannot replace a consultation, but it can
+                Every product is still formulated by Arvaya. Every quiz recommendation is based on
+                the same logic used in clinic. The quiz cannot replace a consultation, but it can
                 give you the next best thing: a routine grounded in your specific constitution and
                 concerns, rather than a one-size-fits-all shelf product.
               </p>
@@ -107,7 +113,7 @@ export default async function AboutPage() {
                 <p className="font-heading text-lg text-[#2F5233] italic">
                   &ldquo;Your skin is not broken. It just needs to be understood.&rdquo;
                 </p>
-                <p className="text-sm text-[#6B5D4F]/70 mt-1">— Dr. Farheen Husain, BAMS</p>
+                <p className="text-sm text-[#6B5D4F]/70 mt-1">— Arvaya</p>
               </div>
             </div>
           </div>
@@ -205,8 +211,8 @@ export default async function AboutPage() {
             Ready to know your Prakriti?
           </h2>
           <p className="text-[#FAF7F0]/70 mb-8 max-w-md mx-auto">
-            Take Dr. Farheen&apos;s 3-minute quiz and get a personalised product routine — the same
-            approach she uses in her clinic.
+            Take Arvaya&apos;s 3-minute quiz and get a personalised product routine — the same
+            approach used in clinic.
           </p>
           <Link href="/quiz" className="inline-flex items-center gap-2 bg-[#D4A24C] text-[#1A3A1F] px-8 py-4 rounded-2xl font-medium hover:bg-[#E8C07A] transition-all hover:-translate-y-0.5">
             Start Your Free Quiz

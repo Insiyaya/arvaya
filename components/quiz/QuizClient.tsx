@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowRight, ArrowLeft, CheckCircle } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle, Leaf } from "lucide-react";
 import { calculateDosha, mapConcernsToProducts, type QuizAnswers } from "@/lib/quiz-engine";
 import type { QuizQuestion } from "@/lib/api";
 
@@ -41,7 +41,7 @@ export default function QuizClient({ questions }: { questions: QuizQuestion[] })
     return (
       <div className="min-h-screen bg-[#FAF7F0] flex items-center justify-center">
         <div className="text-center max-w-md px-4">
-          <div className="text-5xl mb-4">🌿</div>
+          <div className="flex justify-center mb-4 text-[#4A7C59]"><Leaf size={44} strokeWidth={1.25} /></div>
           <p className="font-heading text-2xl text-[#2F5233] mb-2">Quiz coming soon</p>
           <p className="text-[#6B5D4F] text-sm leading-relaxed">
             Questions are being set up. Check back shortly or{" "}

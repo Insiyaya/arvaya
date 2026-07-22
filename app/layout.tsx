@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
+import AuthProvider from "@/components/providers/AuthProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Arvaya Ayurveda",
   },
   description:
-    "Personalised Ayurvedic skincare and haircare formulated by Dr. Farheen Husain, BAMS. Take our free Prakriti quiz for your personalised product kit. 100% natural, chemical-free.",
+    "Personalised Ayurvedic skincare and haircare formulated by Arvaya. Take our free Prakriti quiz for your personalised product kit. 100% natural, chemical-free.",
   keywords: [
     "ayurvedic skincare india",
     "personalized hair care ayurveda",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     "dosha skincare",
     "natural skincare india",
   ],
-  authors: [{ name: "Dr. Farheen Husain, BAMS" }],
+  authors: [{ name: "Arvaya" }],
   creator: "Arvaya Ayurveda",
   openGraph: {
     type: "website",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Arvaya Ayurveda",
     title: "Arvaya — Ayurvedic Skincare & Haircare, Doctor Formulated",
     description:
-      "Personalised Ayurvedic skincare and haircare formulated by Dr. Farheen Husain, BAMS. Take the free Prakriti quiz.",
+      "Personalised Ayurvedic skincare and haircare formulated by Arvaya. Take the free Prakriti quiz.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Arvaya Ayurveda" }],
   },
   twitter: {
@@ -46,10 +47,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="h-full">
       <body className="min-h-full flex flex-col bg-[#FAF7F0] text-[#2C2C2C] antialiased">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppButton />
+        <AuthProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <WhatsAppButton />
+        </AuthProvider>
       </body>
     </html>
   );
