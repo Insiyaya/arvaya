@@ -40,6 +40,15 @@ export default function CheckoutClient() {
           items: items.map(i => ({ productId: i.slug, slug: i.slug, name: i.name, price: i.price, quantity: i.qty })),
           email: form.email,
           phone: form.phone || undefined,
+          shipping: {
+            firstName: form.firstName,
+            lastName: form.lastName,
+            address1: form.address1,
+            address2: form.address2 || undefined,
+            city: form.city,
+            state: form.state,
+            pincode: form.pincode,
+          },
         }),
       });
       const data = await res.json();

@@ -301,14 +301,26 @@ export const PRODUCTS = [
   },
 ];
 
-// A curated tridoshic starter bundle suggested to newcomers (and echoed by the quiz).
-export const STARTER_KIT = {
-  name: "Dinacharya Starter Ritual",
-  sanskritName: "दिनचर्या",
-  blurb:
-    "A tridoshic daily ritual to begin with: cleanse, treat and nourish, in three steps suited to every Prakriti.",
-  slugs: ["neem-tulsi-face-wash", "kumkumadi-face-serum", "triphala-hair-mask"],
-};
+// About-page content (seeded into the DB; renders the timeline / credentials / pillars).
+export const TIMELINE = [
+  { year: "2016", event: "A BAMS practice opens, focused on skin and hair concerns at the root cause." },
+  { year: "2018", event: "Patients start going home with in-clinic preparations; word spreads." },
+  { year: "2021", event: "Arvaya launches, bringing those classical formulations to everyone." },
+  { year: "2024", event: "The Prakriti quiz and personalised kits reach thousands across India." },
+];
+
+export const CREDENTIALS = [
+  { iconName: "Award", title: "BAMS Qualified", description: "Formulated from a qualified Ayurvedic clinical practice, not a marketing desk." },
+  { iconName: "BookOpen", title: "Rooted in Classical Texts", description: "Recipes reference the Charaka Samhita and Ashtanga Hridayam." },
+  { iconName: "Users", title: "12+ Years in Clinic", description: "Refined on thousands of real skin and hair cases before reaching a shelf." },
+  { iconName: "Leaf", title: "Small-batch & Natural", description: "Cold-pressed oils and steam-distilled extracts, free from parabens and sulfates." },
+];
+
+export const PILLARS = [
+  { number: "01", title: "Personal, not generic", description: "Every routine begins with your Prakriti, never a one-size-fits-all shelf product." },
+  { number: "02", title: "Classical, validated", description: "Ancient formulations, chosen with modern evidence and clinical experience." },
+  { number: "03", title: "Clean & honest", description: "Simple, natural blends with claims grounded in tradition, never overstated." },
+];
 
 export const BLOG_POSTS = [
   {

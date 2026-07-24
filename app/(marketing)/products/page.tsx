@@ -4,7 +4,7 @@ import { Filter, SlidersHorizontal, ArrowRight } from "lucide-react";
 import ProductCard from "@/components/product/ProductCard";
 import AddToCartButton from "@/components/product/AddToCartButton";
 import { fetchProducts } from "@/lib/api";
-import { STARTER_KIT } from "@/lib/dummy-data";
+import { STARTER_KIT } from "@/lib/starter-kit";
 import { getKitBundlePrice } from "@/lib/quiz-engine";
 import { formatPrice } from "@/lib/utils";
 

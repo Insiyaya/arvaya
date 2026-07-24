@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { filterProducts } from "@/lib/api";
+import { fetchProducts } from "@/lib/api";
 
-// Serves the local product catalogue (lib/dummy-data.ts). The quiz results page
-// fetches this endpoint to enrich its recommendations.
+// Serves the product catalogue from the database. The quiz results page fetches
+// this endpoint to enrich its recommendations.
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const products = filterProducts({
+  const products = await fetchProducts({
     category: searchParams.get("category") ?? undefined,
     dosha: searchParams.get("dosha") ?? undefined,
     concern: searchParams.get("concern") ?? undefined,
